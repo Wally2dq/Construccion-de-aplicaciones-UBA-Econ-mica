@@ -15,9 +15,7 @@ namespace Calculadora.Final
             string Entrada2 = "";
             int Valor1 = 0;
             int Valor2 = 0;
-            //bool Validacion1 = true;
-            //bool Validacion2 = true;
-            string Salida = "x" ;
+            string Salida = "";
 
             Class1 F = new Class1();
 
@@ -30,8 +28,12 @@ namespace Calculadora.Final
 
                 Console.WriteLine("Valores "+Valor1+" "+Valor2);
 
+                F.Operaciones(Valor1,Valor2);
 
-            } while ((Salida != "X") || (Salida !="x") );
+                
+
+
+            } while (Salida != "X" );
         }
     }
 }
