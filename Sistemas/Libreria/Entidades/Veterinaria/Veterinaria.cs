@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Libreria.Entidades.Veterinaria.Animales;
+using Libreria.Entidades.Deportista;
 
 namespace Libreria.Entidades.Veterinaria
 {

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Libreria;
 using Libreria.Entidades.Veterinaria.Animales;
+using Libreria.Entidades.Deportista;
+
 
 namespace Sistemas.Proyecto
 {
@@ -18,9 +19,17 @@ namespace Sistemas.Proyecto
 
             Console.WriteLine(Ani.EdadAnimal);
 
+            Deportista D = new Deportista();
+
+            D.TipoDeporteDeportista = "Taekwondo";
+            D.ActividadDeportista = "true";
+
+            Console.WriteLine(D.TipoDeporteDeportista);
+            Console.WriteLine(D.ActividadDeportista);
+
             Console.ReadKey();
 
-
+            
 
         }
     }
