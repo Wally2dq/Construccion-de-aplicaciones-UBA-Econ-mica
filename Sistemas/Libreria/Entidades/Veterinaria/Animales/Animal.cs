@@ -11,6 +11,7 @@ namespace Libreria.Entidades.Veterinaria.Animales
         private string TipoAnimal;
         private string Raza;
         private int Edad;
+        private string Sexo;
 
         public string TipoDeAnimal 
         {
@@ -28,7 +29,7 @@ namespace Libreria.Entidades.Veterinaria.Animales
         {
             get 
             {
-                return "Raza" + this.Raza;
+                return "Raza del Animal : " + this.Raza;
             }
             set 
             {
@@ -48,5 +49,16 @@ namespace Libreria.Entidades.Veterinaria.Animales
             }
         }
 
+        public string SexoAnimal
+        {
+            get
+            {
+                return "Sexo del animal : " + this.TipoAnimal;
+            }
+            set
+            {
+                this.Sexo = value;
+            }
+        }
     }
 }

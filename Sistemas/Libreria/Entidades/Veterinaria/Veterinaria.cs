@@ -12,8 +12,9 @@ namespace Libreria.Entidades.Veterinaria
     {
         private DateTime Turnos;
         private string NombreVeterinario;
-        private Animal[] Animales;
         private bool CuidadoEspecial;
+
+        private Animal Ani = new Animal();
 
         public string FechaTurno
         {
@@ -52,8 +53,25 @@ namespace Libreria.Entidades.Veterinaria
             }
         }
 
+
         //Nose como crear un Public para utilizar la clase "Animal"
+        public string MostrarAnimales
+        {
+            get
+            {
+                return Ani.TipoDeAnimal +
+                    "\n" + Ani.RazaAnimal +
+                    "\n" + Ani.EdadAnimal +
+                    "\n" + Ani.SexoAnimal;
+            }
+        }
 
-
+        public void SetAnimales( string TipoAni, string RazaAni, string EdadAni , string SexoAni)
+        {
+            Ani.TipoDeAnimal = TipoAni;
+            Ani.RazaAnimal = RazaAni;
+            Ani.EdadAnimal = EdadAni;
+            Ani.SexoAnimal = SexoAni;
+        }
     }
 }
