@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{69E93BCA-1D68-4F21-ADD0-3AFD68E48855}</ProjectGuid>
+    <ProjectGuid>{CA3B7454-225F-46B6-B9C1-93D40BB734CC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Libreria</RootNamespace>
-    <AssemblyName>Libreria</AssemblyName>
+    <RootNamespace>LibreriaBotones</RootNamespace>
+    <AssemblyName>LibreriaBotones</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,14 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boton\Boton.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="Entidades\Restaurante\PersonaRestaurante\PersonaRestaurante.cs" />
-    <Compile Include="Entidades\Restaurante\Restaurante.cs" />
-    <Compile Include="Entidades\Deportista\Deportista.cs" />
-    <Compile Include="Entidades\Veterinaria\Animales\Animal.cs" />
-    <Compile Include="Entidades\Veterinaria\Veterinaria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

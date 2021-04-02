@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{69E93BCA-1D68-4F21-ADD0-3AFD68E48855}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Libreria</RootNamespace>
-    <AssemblyName>Libreria</AssemblyName>
+    <ProjectGuid>{C6EFB46C-A6EE-4AD2-BD0D-00ECEA396C2C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ProyectoBotones</RootNamespace>
+    <AssemblyName>ProyectoBotones</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,14 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Entidades\Restaurante\PersonaRestaurante\PersonaRestaurante.cs" />
-    <Compile Include="Entidades\Restaurante\Restaurante.cs" />
-    <Compile Include="Entidades\Deportista\Deportista.cs" />
-    <Compile Include="Entidades\Veterinaria\Animales\Animal.cs" />
-    <Compile Include="Entidades\Veterinaria\Veterinaria.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibreriaBotones\LibreriaBotones.csproj">
+      <Project>{ca3b7454-225f-46b6-b9c1-93d40bb734cc}</Project>
+      <Name>LibreriaBotones</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
