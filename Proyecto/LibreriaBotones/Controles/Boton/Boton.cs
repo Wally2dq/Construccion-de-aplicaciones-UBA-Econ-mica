@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibreriaBotones
+namespace LibreriaBotones.Controles.Boton
 {
-    public class Class
+    public class Botones
     {
-       //Ver como Referencia la clase BOTON en esta clase para usarlo;
     }
 }

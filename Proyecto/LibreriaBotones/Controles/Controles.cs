@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibreriaBotones.Controles.Boton;
 
-namespace LibreriaBotones
+namespace LibreriaBotones.Controles
 {
-    public class Class
+    public class Controles
     {
-       //Ver como Referencia la clase BOTON en esta clase para usarlo;
+        List<Botones> _botones;
     }
 }
