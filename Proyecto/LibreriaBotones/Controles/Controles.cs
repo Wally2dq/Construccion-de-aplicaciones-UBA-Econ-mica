@@ -10,5 +10,9 @@ namespace LibreriaBotones.Controles
     public class Controles
     {
         List<Botones> _botones;
+
+        public void CargarBotones() {
+            //Cargar Botones
+        }
     }
 }

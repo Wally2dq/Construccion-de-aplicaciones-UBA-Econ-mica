@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LibreriaBotones;
 using LibreriaBotones.Controles;
+using LibreriaBotones.Controles.Boton;
 
 namespace ProyectoBotones
 {
@@ -12,11 +13,17 @@ namespace ProyectoBotones
     {
         static void Main(string[] args)
         {
-            bool flag = false;
-            int Seleccion;
+            //bool flag = false;
+            //int Seleccion;
 
-            Controles C = new Controles();
+            //Controles C = new Controles();
 
+            Botones B = new Botones(2,"ggg");
+
+            Console.WriteLine(B.MostrarBoton());
+
+            Console.ReadKey();
+            /*
             do
             {
                 Console.WriteLine("Seleccione una opcion" +
@@ -38,6 +45,7 @@ namespace ProyectoBotones
                 }
 
             } while (flag != true);
+            */
         }
     }
 }
