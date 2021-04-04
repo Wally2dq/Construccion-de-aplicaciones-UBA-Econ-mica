@@ -13,17 +13,17 @@ namespace ProyectoBotones
     {
         static void Main(string[] args)
         {
-            //bool flag = false;
-            //int Seleccion;
+            bool flag = false;
+            bool flagIngreso =false;
+            int Seleccion=0;
 
-            //Controles C = new Controles();
+            Controles C = new Controles();
 
-            Botones B = new Botones(2,"ggg");
+            //Console.WriteLine(B.MostrarBoton());
 
-            Console.WriteLine(B.MostrarBoton());
-
-            Console.ReadKey();
-            /*
+            //Console.ReadKey();
+            Botones B = new Botones();
+            
             do
             {
                 Console.WriteLine("Seleccione una opcion" +
@@ -33,19 +33,55 @@ namespace ProyectoBotones
                     "\n4 - Mostrar Descripcion" +
                     "\n5 - Salir");
 
-                Console.WriteLine("\nIngrese su Opcion");
-                Seleccion = Convert.ToInt32(Console.ReadLine()); //Hacer un metodo para validarlo
-
+                do
+                {
+                    try
+                    {
+                        Console.WriteLine("\nIngrese su Opcion");
+                        Seleccion = Convert.ToInt32(Console.ReadLine());
+                        flagIngreso = false;
+                    }
+                    catch (FormatException FoEx)
+                    {
+                        Console.WriteLine("Ingrese un numero por favor "+FoEx.Message);
+                        flagIngreso = true;
+                    }
+                    catch (Exception Exe) 
+                    {
+                        Console.WriteLine("Ocurrio un error "+Exe.Message);
+                    }
+                } while (flagIngreso!=false);
+               
                 switch (Seleccion)
                 {
                     case 1:
-                        {
+                        Console.WriteLine("Caso 1 Listar Botones");
+                        Console.WriteLine(B.MostrarBoton());
+                        break;
 
-                        }
+                    case 2:
+                        Console.WriteLine("Caso 2 Agregar Boton");
+                        C.AgregarBotonEnLista();
+                        break;
+                    case 3:
+                        Console.WriteLine("Caso 3 Eliminar Boton");
+                        break;
+                    case 4:
+                        Console.WriteLine("Caso 4 Mostrar Descripcion");
+                        break;
+                    case 5:
+                        Console.WriteLine("Caso 5 Salir");
+                        flag = true;
+                        break;
+                    default:
+                        Console.WriteLine("Ingrese un valor del 1 a 5");
+                        break;
                 }
 
             } while (flag != true);
-            */
+
+            Console.WriteLine("\nGracias por utilizar nuestros servicios\n");
+            Console.ReadKey();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace LibreriaBotones.Controles.Boton
 {
     public class Botones
@@ -28,12 +29,16 @@ namespace LibreriaBotones.Controles.Boton
             set => this._description = value;
         }
 
-        public Botones(int cod, string desc)
+        public Botones(int cod, string desc) //Contructor con parametros
         {
             Codigo = cod;
             Descripcion = desc;
         }
-        public string MostrarBoton()
+        public Botones() //Contructor sin nada
+        {
+            //Nada
+        }
+        public string MostrarBoton() //Formato para Mostrar los Botones
         {
             return "Codigo: " + Codigo.ToString()+
                 "\nDescripcion: "+ Descripcion;

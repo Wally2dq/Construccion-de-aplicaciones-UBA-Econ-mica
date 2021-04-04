@@ -44,6 +44,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Controles\Boton\Boton.cs" />
     <Compile Include="Controles\Controles.cs" />
+    <Compile Include="Controles\Exepciones\ExepcionRepetido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
