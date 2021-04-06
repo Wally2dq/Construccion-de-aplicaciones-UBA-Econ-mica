@@ -15,7 +15,7 @@ namespace ProyectoBotones
         {
             bool flag = false;
             bool flagIngreso =false;
-            int Seleccion=0;
+            int Seleccion=-1;
 
             Controles C = new Controles();
 
@@ -26,7 +26,7 @@ namespace ProyectoBotones
             
             do
             {
-                Console.WriteLine("Seleccione una opcion" +
+                Console.WriteLine("\nSeleccione una opcion" +
                     "\n1 - Mostrar Botones" +
                     "\n2 - Agregar Boton" +
                     "\n3 - Eliminar Boton" +
@@ -55,26 +55,32 @@ namespace ProyectoBotones
                 switch (Seleccion)
                 {
                     case 1:
-                        Console.WriteLine("Caso 1 Listar Botones");
-                        Console.WriteLine(B.MostrarBoton());
+                        Console.WriteLine("Lista Botones");
+                        C.MostrarBotonesControlador();
                         break;
 
                     case 2:
-                        Console.WriteLine("Caso 2 Agregar Boton");
+                        Console.WriteLine("Agregar Boton");
                         C.AgregarBotonEnLista();
                         break;
                     case 3:
-                        Console.WriteLine("Caso 3 Eliminar Boton");
+                        Console.WriteLine("Eliminar Boton");
+                        C.BorrarBotonesControlador();
+
+                        //ERROR, NO ME SACA EL DATO DE LA LISTA AL MOSTRAR NUEVAMENTE LUEGO DE EJECUTAR ESTO
+
+
                         break;
                     case 4:
-                        Console.WriteLine("Caso 4 Mostrar Descripcion");
+                        Console.WriteLine("Mostrar Descripcion");
+                        C.MostrarDescripcionBotonesControlador();
                         break;
                     case 5:
-                        Console.WriteLine("Caso 5 Salir");
+                        Console.WriteLine("Salir");
                         flag = true;
                         break;
                     default:
-                        Console.WriteLine("Ingrese un valor del 1 a 5");
+                        Console.WriteLine("\nIngrese un valor del 1 a 5\n");
                         break;
                 }
 

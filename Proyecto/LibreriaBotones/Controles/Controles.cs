@@ -78,9 +78,152 @@ namespace LibreriaBotones.Controles
 
         private void AgregarBoton(int cod, string descripcion)  //Agrego el boton a la lista 
         {
-            Botones btn = new Botones(cod, descripcion); //Utilizo el construtor con parametros
+            Botones AB = new Botones(cod, descripcion); //Utilizo el construtor con parametros
 
-            _Botones.Add(btn);
+            _Botones.Add(AB);
+        }
+
+        public void MostrarBotonesControlador() //Bucle, cargo los datos en un string y lo muestro
+        {
+            string CartelMostrar = "";
+            Botones MBC = new Botones();
+
+            foreach (Botones i in _Botones )
+            {
+                CartelMostrar += MBC.MostrarCodigo(i.Codigo)+"\n";
+            }
+
+            if (CartelMostrar == "")
+            {
+                Console.WriteLine("\nNo hay botones Cargados\n");
+            }
+            else 
+            {
+                Console.WriteLine(CartelMostrar);
+            }
+        }
+
+        public void BorrarBotonesControlador() 
+        {
+            int Ingreso = 0;
+            bool flag = true;
+            string CartelBorrar = "";
+            int BorrarCodigo = -1;
+            string BorrarDescrip ="" ;
+
+            Botones BBC = new Botones();
+
+
+            do //BUCLE DE LA ENTRADA DEL CODIGO
+            {
+                try
+                {
+                    Console.WriteLine("Ingrese el codigo del Boton que desea BORRAR ");
+                    Ingreso = Convert.ToInt32(Console.ReadLine());
+                    flag = true;
+                }
+                catch (FormatException ForEx)
+                {
+                    Console.WriteLine("Ingrese un Numero " + ForEx.Message);
+                    flag = false;
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Ocurrio un error " + ex.Message);
+                    flag = false;
+
+                }
+            } while (flag != true);
+
+
+
+
+            foreach (Botones i in _Botones)
+            {
+                if (i.Codigo == Ingreso)
+                {
+                    CartelBorrar += BBC.MostrarBoton(i.Codigo, i.Descripcion);
+                    BorrarCodigo = i.Codigo;
+                    BorrarDescrip =i.Descripcion;
+                }
+            }
+
+            if (CartelBorrar == "")
+            {
+                Console.WriteLine("\nCodigo De Boton Inexistete");
+            }
+            else 
+            {
+                Console.WriteLine("Usted Borro \n"+CartelBorrar);
+                BorrarBoton(BorrarCodigo,BorrarDescrip);
+            }
+
+            
+        }
+
+        private void BorrarBoton(int cod, string descripcion)  //Elimino Boton de la lista 
+        {
+            Botones BB = new Botones();
+
+            _Botones.Remove(BB);
+        }
+
+        //ERROR , CUANDO EJECUTO BORRAR BOTON, NO LO SACA DE LA LISTA, AL SACARLO, Y EJECUTO MOSTRAR LISTA, APARECE EL QUE DEBERIA
+        //SER ELIMINADO
+
+        public void MostrarDescripcionBotonesControlador()
+        {
+            int Ingreso = 0;
+            bool flag = true;
+            string CartelDesc = "";
+
+            Botones MDBC = new Botones();
+
+
+            do //BUCLE DE LA ENTRADA DEL CODIGO
+            {
+                try
+                {
+                    Console.WriteLine("Ingrese el codigo del Boton que desea ver la Descripcion ");
+                    Ingreso = Convert.ToInt32(Console.ReadLine());
+                    flag = true;
+                }
+                catch (FormatException ForEx)
+                {
+                    Console.WriteLine("Ingrese un Numero " + ForEx.Message);
+                    flag = false;
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Ocurrio un error " + ex.Message);
+                    flag = false;
+
+                }
+            } while (flag != true);
+
+
+
+
+            foreach (Botones i in _Botones)
+            {
+                if (i.Codigo == Ingreso)
+                {
+                    CartelDesc = MDBC.MostrarBoton(i.Codigo, i.Descripcion);
+                }
+            }
+
+            if (CartelDesc == "")
+            {
+                Console.WriteLine("\nCodigo De Boton Inexistete");
+            }
+            else
+            {
+                Console.WriteLine(CartelDesc);
+            }
+
+
         }
     }
 }

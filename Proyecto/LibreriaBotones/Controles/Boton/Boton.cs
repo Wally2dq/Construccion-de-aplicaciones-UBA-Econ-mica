@@ -38,12 +38,16 @@ namespace LibreriaBotones.Controles.Boton
         {
             //Nada
         }
-        public string MostrarBoton() //Formato para Mostrar los Botones
+        public string MostrarBoton(int Codigo,string Descripcion) //Formato para Mostrar los Botones
         {
             return "Codigo: " + Codigo.ToString()+
-                "\nDescripcion: "+ Descripcion;
+                "\tDescripcion: "+ Descripcion;
         }
 
+        public string MostrarCodigo(int Codigo) 
+        {
+            return "Codigo: " + Codigo.ToString();
+        }
         
     }
 }
