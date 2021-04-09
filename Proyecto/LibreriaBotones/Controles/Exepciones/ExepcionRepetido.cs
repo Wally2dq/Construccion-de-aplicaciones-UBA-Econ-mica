@@ -8,6 +8,19 @@ namespace LibreriaBotones.Controles.Exepciones
 {
     public class RepetidoExepcion : Exception
     {
-        //Nose como seguirlo de aca Podria hacer un Foreach, pero nose a que lo compararia
+        List<int> _Botones;
+
+        private void BusquedaRepetido(int Entrada)
+        {
+            foreach (int i in _Botones)
+            {
+                if (i == Entrada)
+                {
+                    throw new RepetidoExepcion(); 
+                }
+            }
+        }
+
+
     }
 }

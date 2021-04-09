@@ -108,8 +108,6 @@ namespace LibreriaBotones.Controles
             int Ingreso = 0;
             bool flag = true;
             string CartelBorrar = "";
-            int BorrarCodigo = -1;
-            string BorrarDescrip ="" ;
 
             Botones BBC = new Botones();
 
@@ -139,13 +137,14 @@ namespace LibreriaBotones.Controles
 
 
 
-            foreach (Botones i in _Botones)
+            foreach (Botones i in _Botones) //Me salta un error en el IN
+            /*System.InvalidOperationException: 'Colección modificada; puede que no se ejecute la operación de enumeración.'*/
             {
-                if (i.Codigo == Ingreso)
+                if ( i.Codigo == Ingreso)
                 {
                     CartelBorrar += BBC.MostrarBoton(i.Codigo, i.Descripcion);
-                    BorrarCodigo = i.Codigo;
-                    BorrarDescrip =i.Descripcion;
+
+                    BorrarBoton(i);
                 }
             }
 
@@ -156,21 +155,18 @@ namespace LibreriaBotones.Controles
             else 
             {
                 Console.WriteLine("Usted Borro \n"+CartelBorrar);
-                BorrarBoton(BorrarCodigo,BorrarDescrip);
             }
 
-            
         }
 
-        private void BorrarBoton(int cod, string descripcion)  //Elimino Boton de la lista 
+        private void BorrarBoton(Botones BB)  //Borro el Boton de la lista
         {
-            Botones BB = new Botones();
-
-            _Botones.Remove(BB);
+            _Botones.Add(BB);
         }
 
-        //ERROR , CUANDO EJECUTO BORRAR BOTON, NO LO SACA DE LA LISTA, AL SACARLO, Y EJECUTO MOSTRAR LISTA, APARECE EL QUE DEBERIA
-        //SER ELIMINADO
+
+
+        //Muestro la lista de botones
 
         public void MostrarDescripcionBotonesControlador()
         {
@@ -224,6 +220,17 @@ namespace LibreriaBotones.Controles
             }
 
 
+        }
+
+        public void BusquedaRepetido(int Entrada)
+        {
+            foreach (Botones i in _Botones) 
+            {
+                if (i.Codigo == Entrada)
+                {
+                    throw new RepetidoExepcion(); //Pregunta y Como usarlo
+                }
+            }
         }
     }
 }
