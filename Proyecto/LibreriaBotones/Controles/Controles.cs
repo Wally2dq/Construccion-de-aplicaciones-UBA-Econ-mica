@@ -145,6 +145,9 @@ namespace LibreriaBotones.Controles
                     CartelBorrar += BBC.MostrarBoton(i.Codigo, i.Descripcion);
 
                     BorrarBoton(i);
+
+                    break; //Para salir del sistema si o si para que no salte el problema de arriba
+
                 }
             }
 
@@ -161,7 +164,7 @@ namespace LibreriaBotones.Controles
 
         private void BorrarBoton(Botones BB)  //Borro el Boton de la lista
         {
-            _Botones.Add(BB);
+            _Botones.Remove(BB);
         }
 
 
