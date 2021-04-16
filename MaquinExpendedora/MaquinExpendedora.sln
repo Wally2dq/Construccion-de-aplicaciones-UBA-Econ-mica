@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjercicicioMaquinExpendedora", "EjercicicioMaquinExpendedora\EjercicicioMaquinExpendedora.csproj", "{B0F18248-4C94-4D91-B167-5DAF8F05B9FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibreriaExpendedora", "LibreriaExpendedora\LibreriaExpendedora.csproj", "{E5162858-F2A5-44B5-BB61-DE44B8C3BE19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libreria", "Libreria\Libreria.csproj", "{7A0F5340-AA71-41C0-ABBA-E434A0EB8077}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{B0F18248-4C94-4D91-B167-5DAF8F05B9FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0F18248-4C94-4D91-B167-5DAF8F05B9FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0F18248-4C94-4D91-B167-5DAF8F05B9FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E5162858-F2A5-44B5-BB61-DE44B8C3BE19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5162858-F2A5-44B5-BB61-DE44B8C3BE19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5162858-F2A5-44B5-BB61-DE44B8C3BE19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5162858-F2A5-44B5-BB61-DE44B8C3BE19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A0F5340-AA71-41C0-ABBA-E434A0EB8077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A0F5340-AA71-41C0-ABBA-E434A0EB8077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A0F5340-AA71-41C0-ABBA-E434A0EB8077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A0F5340-AA71-41C0-ABBA-E434A0EB8077}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

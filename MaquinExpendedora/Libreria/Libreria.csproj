@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E5162858-F2A5-44B5-BB61-DE44B8C3BE19}</ProjectGuid>
+    <ProjectGuid>{7A0F5340-AA71-41C0-ABBA-E434A0EB8077}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LibreriaExpendedora</RootNamespace>
-    <AssemblyName>LibreriaExpendedora</AssemblyName>
+    <RootNamespace>Libreria</RootNamespace>
+    <AssemblyName>Libreria</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
