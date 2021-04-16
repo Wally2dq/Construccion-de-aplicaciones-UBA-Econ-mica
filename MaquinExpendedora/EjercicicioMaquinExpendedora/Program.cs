@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Class.Expendedora;
-using Class.Validacion;
-using Class.Exepciones;
+using LibreriaExpendedora.Expendedor;
+using LibreriaExpendedora.Validaciones;
 
-namespace ProyectoDeMaquina
+namespace EjercicicioMaquinExpendedora
 {
     class Program
     {
-        static private Expendedora expen ;
+        static private Expendedora expen;
         static private Validaciones validaciones = new Validaciones();
         static void Main(string[] args)
         {
@@ -19,7 +18,7 @@ namespace ProyectoDeMaquina
             EjecuctarOpciones();
         }
 
-        static string Menu() 
+        static string Menu()
         {
             return "\n 0 Encender Maquina" +
                 "\n 1 Latas Disponibles" +
@@ -30,22 +29,23 @@ namespace ProyectoDeMaquina
                 "\n 6 Salir";
         }
 
-        static void IngresoDatosExpendedora() 
+        static void IngresoDatosExpendedora()
         {
-            string Proveedor="";
-            int Cantidad =-1;
+            string Proveedor = "";
+            int Cantidad = -1;
 
             Console.WriteLine("Ingrese Proveedor");
             validaciones.ValidarString(ref Proveedor);
             Console.WriteLine("Ingrese la cantidad maxima");
             validaciones.ValidarNumeroEntero(ref Cantidad);
 
-            new Expendedora(Proveedor,Cantidad);
-;        }
+            new Expendedora(Proveedor, Cantidad);
+            ;
+        }
 
-        static void EjecuctarOpciones() 
+        static void EjecuctarOpciones()
         {
-            int Opciones=-1;
+            int Opciones = -1;
             bool flag = false;
 
             do
@@ -78,7 +78,7 @@ namespace ProyectoDeMaquina
                         break;
                 }
 
-            } while (flag!=true);
+            } while (flag != true);
         }
         static void IngresarLata(Expendedora Ex) { }
 
