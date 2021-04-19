@@ -8,6 +8,9 @@ namespace LibreriaExpendedora.Exepciones
 {
     public class DineroInsuficienteExepcion : Exception
     {
-        public DineroInsuficienteExepcion(string msg) : base(msg);
+        public DineroInsuficienteExepcion(string msg) : base(msg) 
+        {
+
+        }
     }
 }

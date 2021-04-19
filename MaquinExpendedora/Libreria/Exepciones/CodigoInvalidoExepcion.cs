@@ -8,6 +8,9 @@ namespace LibreriaExpendedora.Exepciones
 {
     public class CodigoInvalidoExepcion : Exception
     {
-        public CodigoInvalidoExepcion(string msg) : base(msg);
+        public CodigoInvalidoExepcion(string msg) : base(msg)
+        {
+
+        }
     }
 }

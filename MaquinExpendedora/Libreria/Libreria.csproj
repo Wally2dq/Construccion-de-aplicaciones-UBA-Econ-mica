@@ -46,6 +46,7 @@
     <Compile Include="Exepciones\CodigoInvalidoExepcion.cs" />
     <Compile Include="Exepciones\DineroInsuficienteExepcionDineroInsuficienteExepcion.cs" />
     <Compile Include="Exepciones\ExpendedoraApagadaExepcion.cs" />
+    <Compile Include="Exepciones\NegativoExepcion.cs" />
     <Compile Include="Exepciones\SinStockExepcion.cs" />
     <Compile Include="Expendedor\ClaseLata\Lata.cs" />
     <Compile Include="Expendedor\Expendedora.cs" />

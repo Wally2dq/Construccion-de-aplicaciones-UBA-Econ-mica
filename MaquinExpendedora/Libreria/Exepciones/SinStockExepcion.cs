@@ -8,6 +8,9 @@ namespace LibreriaExpendedora.Exepciones
 {
     public class SinStockExepcion : Exception
     {
-        public SinStockExepcion(string msg) : base(msg);
+        public SinStockExepcion(string msg) : base(msg) 
+        {
+
+        }
     }
 }

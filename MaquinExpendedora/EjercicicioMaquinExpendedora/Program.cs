@@ -10,12 +10,20 @@ namespace EjercicicioMaquinExpendedora
 {
     class Program
     {
-        static private Expendedora expen;
-        static private Validaciones validaciones = new Validaciones();
+        static public Validaciones validaciones;
+
+        static Program()
+        {
+            new Expendedora("Wal",2);
+            validaciones = new Validaciones();
+        }
+
         static void Main(string[] args)
         {
-            IngresoDatosExpendedora();
+
             EjecuctarOpciones();
+
+            Console.ReadKey();
         }
 
         static string Menu()
@@ -29,7 +37,7 @@ namespace EjercicicioMaquinExpendedora
                 "\n 6 Salir";
         }
 
-        static void IngresoDatosExpendedora()
+        static void IngresoDatosExpendedora(ref string IngresoProveedor,ref int CantidadIngreso)
         {
             string Proveedor = "";
             int Cantidad = -1;
@@ -39,8 +47,7 @@ namespace EjercicicioMaquinExpendedora
             Console.WriteLine("Ingrese la cantidad maxima");
             validaciones.ValidarNumeroEntero(ref Cantidad);
 
-            new Expendedora(Proveedor, Cantidad);
-            ;
+
         }
 
         static void EjecuctarOpciones()
@@ -48,10 +55,17 @@ namespace EjercicicioMaquinExpendedora
             int Opciones = -1;
             bool flag = false;
 
+            string Proveedor = null;
+            int Cantidad = -1;
+
+            IngresoDatosExpendedora(ref Proveedor, ref Cantidad);
+
+            Expendedora expen = new Expendedora(Proveedor, Cantidad);
+
             do
             {
 
-                Menu();
+                Console.WriteLine(Menu());
                 Console.WriteLine("Ingrese su Opcion");
                 validaciones.ValidarNumeroEntero(ref Opciones);
 
@@ -59,6 +73,7 @@ namespace EjercicicioMaquinExpendedora
                 {
                     case 0:
                         expen.EncenderMaquina();
+                        Console.WriteLine("Maquina Encendida");
                         break;
                     case 1:
                         break;
@@ -72,9 +87,10 @@ namespace EjercicicioMaquinExpendedora
                         break;
                     case 6:
                         flag = true;
+                        Console.WriteLine("Hasta Pronto ...");
                         break;
                     default:
-                        Console.WriteLine("Ingrese una opcion entre 0 a 5");
+                        Console.WriteLine("Ingrese una opcion entre 0 a 6");
                         break;
                 }
 

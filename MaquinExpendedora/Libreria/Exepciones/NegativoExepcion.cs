@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace LibreriaExpendedora.Exepciones
 {
-    class ExpendedoraApagadaExepcion : Exception
+    class NegativoExepcion : Exception
     {
-        public ExpendedoraApagadaExepcion(string msg) : base(msg) 
+        public NegativoExepcion(string msg) : base(msg)
         {
 
         }
     }
 }
+
