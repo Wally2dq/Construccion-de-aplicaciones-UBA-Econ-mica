@@ -9,6 +9,12 @@ namespace LibreriaExpendedora.Validaciones
 {
     public class Validaciones
     {
+        public int NumeroNegativo(int Numero)
+        {
+            if (Numero < 0)
+                throw new SinStockExepcion("No Ingrese valores Negativos");
+            return Numero;
+        }
         public void ValidarNumeroEntero(ref int Numero)
         {
             bool flag = false;
@@ -20,6 +26,7 @@ namespace LibreriaExpendedora.Validaciones
                     Numero = Convert.ToInt32(Console.ReadLine()); ;
                     flag = true;
 
+                    NumeroNegativo(Numero); ///Tengo que poner esto para que pueda leer el numero y luego ejecuta la exepcion
                 }
                 catch (FormatException ForEx)
                 {
@@ -31,7 +38,7 @@ namespace LibreriaExpendedora.Validaciones
                     Console.WriteLine(Nu.Message + "\nIngrese su valor nuevamente");
                     flag = false;
                 }
-                catch (SinStockExepcion NeEx) 
+                catch (NegativoExepcion NeEx)  
                 {
                     Console.WriteLine(NeEx.Message + "\nIngrese su valor nuevamente");
                     flag = false;
@@ -43,6 +50,7 @@ namespace LibreriaExpendedora.Validaciones
                     flag = false;
                 }
 
+                
 
             } while (flag != true);
 
@@ -82,12 +90,7 @@ namespace LibreriaExpendedora.Validaciones
 
         }
 
-        public int NumeroNegativo(int Numero) 
-        {
-            if (Numero < 0)
-                throw new SinStockExepcion("No Ingrese valores Negativos");
-            return Numero;
-        }
+        
         
     }
 }

@@ -26,10 +26,11 @@ namespace LibreriaExpendedora.Expendedor
         }
         public Expendedora(string ProveedorIngreso, int CapacidadIngreso)
         {
-            Proveedor = ProveedorIngreso;
-            Capacidad = CapacidadIngreso;
-            Dinero = 0;
-            Encendido = false;
+            this._latas = new List<Lata>();
+            this.Proveedor = ProveedorIngreso;
+            this.Capacidad = CapacidadIngreso;
+            this.Dinero = 0;
+            this.Encendido = false;
         }
 
         public void AgregarLata() { }
@@ -58,5 +59,26 @@ namespace LibreriaExpendedora.Expendedor
         {
             throw new NotImplementedException();
         }
+
+        public List<string> MostrarLista() 
+        {
+            List<string> lista = new List<string>();
+
+            foreach (Lata lata in _latas)
+            {
+                lista.Add(""+lata.Codigo+") "+lata.Nombre+" ["+lata.Cantidad+"] ");
+            }
+
+            if (lista == null) 
+            {
+                lista.Add("No hay Latas cargadas");
+            }
+
+            return lista;
+
+            
+        }
+
+        
     }
 }

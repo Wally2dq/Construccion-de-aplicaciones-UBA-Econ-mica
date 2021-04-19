@@ -15,12 +15,12 @@ namespace LibreriaExpendedora.Expendedor.ClaseLata
         private double _volumen;
         private int _cantidad;
 
-        public string Codigo { get => _codigo; }
-        public string Nombre { get => _nombre; }
-        public string Sabor { get => _sabor; }
-        public double Precio { get => _precio; }
-        public double Volumen { get => _volumen; }
-        public int Cantidad { get => _cantidad; }
+        public string Codigo { get => _codigo; set => this._codigo = value; }
+        public string Nombre { get => _nombre; set => this._nombre = value; }
+        public string Sabor { get => _sabor; set => this._sabor = value; }
+        public double Precio { get => _precio; set => this._precio = value; }
+        public double Volumen { get => _volumen; set => this._volumen = value; }
+        public int Cantidad { get => _cantidad; set => this._cantidad = value; }
 
         public Lata()
         {

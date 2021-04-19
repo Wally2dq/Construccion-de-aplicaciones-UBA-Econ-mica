@@ -76,6 +76,7 @@ namespace EjercicicioMaquinExpendedora
                         Console.WriteLine("Maquina Encendida");
                         break;
                     case 1:
+                        Console.WriteLine(expen.MostrarLista());
                         break;
                     case 2:
                         break;
@@ -96,7 +97,7 @@ namespace EjercicicioMaquinExpendedora
 
             } while (flag != true);
         }
-        static void IngresarLata(Expendedora Ex) { }
+        static void IngresarLata() { }
 
         static void ExtraerLata(Expendedora Ex) { }
 
