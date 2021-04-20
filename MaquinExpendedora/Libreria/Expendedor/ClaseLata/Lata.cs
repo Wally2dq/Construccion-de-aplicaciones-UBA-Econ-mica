@@ -24,7 +24,12 @@ namespace LibreriaExpendedora.Expendedor.ClaseLata
 
         public Lata(string CodigoIngreso, string NombreIngreso, string SaborIngreso,double PrecioIngreso,double VolumenIngreso, int CantidadIngreso )
         {
-            //Rellenar
+            this.Codigo = CodigoIngreso;
+            this.Nombre = NombreIngreso;
+            this.Sabor = SaborIngreso;
+            this.Precio = PrecioIngreso;
+            this.Volumen = VolumenIngreso;
+            this.Cantidad = CantidadIngreso;
         }
 
         private double GetPrecioPorLitro()

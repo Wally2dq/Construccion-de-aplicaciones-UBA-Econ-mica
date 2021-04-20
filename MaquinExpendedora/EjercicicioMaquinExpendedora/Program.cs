@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using LibreriaExpendedora.Expendedor;
 using LibreriaExpendedora.Validaciones;
+using LibreriaExpendedora.Expendedor.ClaseLata;
 
 namespace EjercicicioMaquinExpendedora
 {
     class Program
     {
-        static public Validaciones validaciones;
+        static public ValidacionesClase validaciones;
 
-        static Program()
+        static Program( )
         {
-            validaciones = new Validaciones();
+            validaciones = new ValidacionesClase();
         }
 
         static void Main(string[] args)
@@ -61,6 +62,8 @@ namespace EjercicicioMaquinExpendedora
 
             Expendedora expen = new Expendedora(Proveedor, Cantidad);
 
+            
+
             do
             {
 
@@ -78,6 +81,7 @@ namespace EjercicicioMaquinExpendedora
                         MostrarStock(expen.Encendido); //Mando el bool para saber si esta encendido la maquina
                         break;
                     case 2:
+                        IngresarLata(expen.Encendido);
                         break;
                     case 3:
                         break;
@@ -96,7 +100,22 @@ namespace EjercicicioMaquinExpendedora
 
             } while (flag != true);
         }
-        static void IngresarLata() { }
+        static void IngresarLata(bool Encendido)
+        {
+            Expendedora IngresarStockExpendedora = new Expendedora();
+
+            bool flag = true;
+
+            flag = validaciones.ValidarEncenderMaquina(Encendido);
+
+            if (flag == true) 
+            {
+                IngresarStockExpendedora.ControlDeCapacidadYAgregarLata();
+
+                //Me salta el error de que no esta instanciada la clase
+            }
+
+        }
 
         static void ExtraerLata(Expendedora Ex) { }
 
@@ -104,6 +123,8 @@ namespace EjercicicioMaquinExpendedora
 
         static void MostrarStock(bool Encendido) 
         {
+            Expendedora MostrarStockExpendedora = new Expendedora();
+
             bool flag = true;
 
             flag = validaciones.ValidarEncenderMaquina(Encendido);

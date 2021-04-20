@@ -7,7 +7,7 @@ using LibreriaExpendedora.Exepciones;
 
 namespace LibreriaExpendedora.Validaciones
 {
-    public class Validaciones
+    public class ValidacionesClase
     {
         public int NumeroNegativo(int Numero)
         {
@@ -51,6 +51,53 @@ namespace LibreriaExpendedora.Validaciones
                 }
 
                 
+
+            } while (flag != true);
+
+        }
+
+        public double NumeroNegativodouble(double Numero)
+        {
+            if (Numero < 0)
+                throw new SinStockExepcion("No Ingrese valores Negativos");
+            return Numero;
+        }
+        public void ValidarDouble(ref double Numero)
+        {
+            bool flag = false;
+
+            do
+            {
+                try
+                {
+                    Numero = Convert.ToDouble(Console.ReadLine()); ;
+                    flag = true;
+
+                    NumeroNegativodouble(Numero); ///Tengo que poner esto para que pueda leer el numero y luego ejecuta la exepcion
+                }
+                catch (FormatException ForEx)
+                {
+                    Console.WriteLine(ForEx.Message + "\nIngrese su valor nuevamente");
+                    flag = false;
+                }
+                catch (NullReferenceException Nu)
+                {
+                    Console.WriteLine(Nu.Message + "\nIngrese su valor nuevamente");
+                    flag = false;
+                }
+                catch (NegativoExepcion NeEx)
+                {
+                    Console.WriteLine(NeEx.Message + "\nIngrese su valor nuevamente");
+                    flag = false;
+                }
+                catch (Exception Ex)
+                {
+
+                    Console.WriteLine(Ex.Message + "\nIngrese su valor nuevamente");
+                    flag = false;
+                }
+
+
 
             } while (flag != true);
 
