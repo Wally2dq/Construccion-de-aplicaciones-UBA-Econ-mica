@@ -90,7 +90,51 @@ namespace LibreriaExpendedora.Validaciones
 
         }
 
-        
+        public List<string> ValidarLista(List<string>_lista) 
+        {
+
+            try
+            {
+                if (_lista.Count == 0)
+                {
+                    throw new SinStockExepcion("No hay Stock");
+                }
+            }
+            catch (SinStockExepcion SinSEx)
+            {
+                Console.WriteLine(SinSEx.Message);
+            }
+            catch (Exception Ex) 
+            {
+                Console.WriteLine(Ex.Message);
+            }
+
+            return _lista;
+            
+        }
+
+        public bool ValidarEncenderMaquina(bool EncenderMaquina) 
+        {
+            bool flag = false;
+            try
+            {
+                if (EncenderMaquina == false)
+                    throw new ExpendedoraApagadaExepcion("Debe encender la Expendedora");
+                flag = true;
+            }
+            catch (ExpendedoraApagadaExepcion ExApa)
+            {
+                Console.WriteLine(ExApa.Message);
+                flag = false;
+            }
+            catch (Exception Ex) 
+            {
+                Console.WriteLine(Ex.Message);
+                flag = false;
+            }
+
+            return flag;
+        }
         
     }
 }

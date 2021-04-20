@@ -22,7 +22,7 @@ namespace LibreriaExpendedora.Expendedor.ClaseLata
         public double Volumen { get => _volumen; set => this._volumen = value; }
         public int Cantidad { get => _cantidad; set => this._cantidad = value; }
 
-        public Lata()
+        public Lata(string CodigoIngreso, string NombreIngreso, string SaborIngreso,double PrecioIngreso,double VolumenIngreso, int CantidadIngreso )
         {
             //Rellenar
         }

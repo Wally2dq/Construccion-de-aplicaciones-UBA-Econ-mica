@@ -14,7 +14,6 @@ namespace EjercicicioMaquinExpendedora
 
         static Program()
         {
-            new Expendedora("Wal",2);
             validaciones = new Validaciones();
         }
 
@@ -76,7 +75,7 @@ namespace EjercicicioMaquinExpendedora
                         Console.WriteLine("Maquina Encendida");
                         break;
                     case 1:
-                        Console.WriteLine(expen.MostrarLista());
+                        MostrarStock(expen.Encendido); //Mando el bool para saber si esta encendido la maquina
                         break;
                     case 2:
                         break;
@@ -103,7 +102,15 @@ namespace EjercicicioMaquinExpendedora
 
         static void ObtenerBalance(Expendedora Ex) { }
 
-        static void MostrarStock(Expendedora Ex) { }
+        static void MostrarStock(bool Encendido) 
+        {
+            bool flag = true;
+
+            flag = validaciones.ValidarEncenderMaquina(Encendido);
+
+            if (flag==true)
+            validaciones.ValidarLista(MostrarStockExpendedora.MostrarLista());
+        }
 
     }
 }

@@ -9,7 +9,7 @@ namespace LibreriaExpendedora.Expendedor
 {
     public class Expendedora
     {
-        List<Lata> _latas; //No debo poner el mismo nombre en la clase que en el using o me salta error
+        List<Lata> _latas ; //No debo poner el mismo nombre en la clase que en el using o me salta error
         private string _proveedor;
         private int _capacidad;
         private double _dinero;
@@ -31,6 +31,7 @@ namespace LibreriaExpendedora.Expendedor
             this.Capacidad = CapacidadIngreso;
             this.Dinero = 0;
             this.Encendido = false;
+
         }
 
         public void AgregarLata() { }
@@ -64,14 +65,12 @@ namespace LibreriaExpendedora.Expendedor
         {
             List<string> lista = new List<string>();
 
-            foreach (Lata lata in _latas)
+            if (_latas != null) 
             {
-                lista.Add(""+lata.Codigo+") "+lata.Nombre+" ["+lata.Cantidad+"] ");
-            }
-
-            if (lista == null) 
-            {
-                lista.Add("No hay Latas cargadas");
+                foreach (Lata lata in _latas)
+                {
+                    lista.Add("" + lata.Codigo + ") " + lata.Nombre + " [" + lata.Cantidad + "] ");
+                }
             }
 
             return lista;
