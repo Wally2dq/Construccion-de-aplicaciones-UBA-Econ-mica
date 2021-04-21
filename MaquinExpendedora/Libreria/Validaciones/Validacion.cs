@@ -27,6 +27,8 @@ namespace LibreriaExpendedora.Validaciones
                     flag = true;
 
                     NumeroNegativo(Numero); ///Tengo que poner esto para que pueda leer el numero y luego ejecuta la exepcion
+
+                    //INGRESAR VALORES MAYOR A 0
                 }
                 catch (FormatException ForEx)
                 {
@@ -182,6 +184,34 @@ namespace LibreriaExpendedora.Validaciones
 
             return flag;
         }
-        
+        public bool ControlDeCapacidad(/*List<object> lista*/int Cantidad, int Limite)
+        {
+            bool flag = false;
+            try
+            {
+                if (Cantidad > Limite)
+                {
+                    flag = false;
+                    throw new CapacidadInsuficienteExepcion("Capacidad de la maquina llena");
+                }
+                else 
+                {
+                    flag = true;
+                }
+            }
+            catch (CapacidadInsuficienteExepcion Cap)
+            {
+                Console.WriteLine(Cap.Message);
+                flag = false;
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.Message);
+                flag = false;
+            }
+
+            return flag;
+        }
+
     }
 }

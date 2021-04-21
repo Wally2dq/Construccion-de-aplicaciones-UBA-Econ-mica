@@ -17,17 +17,15 @@ namespace LibreriaExpendedora.Expendedor
         private double _dinero;
         private bool _encendido;
 
-        ValidacionesClase validaciones = new ValidacionesClase();
-
+        
         public string Proveedor { get => this._proveedor; set => this._proveedor = value; }
         public int Capacidad { get => this._capacidad; set => this._capacidad = value; }
         public double Dinero { get => this._dinero; set => this._dinero = value; }
         public bool Encendido { get => this._encendido; set => this._encendido = value; }
 
-        public Expendedora()
-        {
-            
-        }
+        public List<Lata> Latas { get => this._latas; set => this._latas = value; }
+
+        
         public Expendedora(string ProveedorIngreso, int CapacidadIngreso)
         {
             this._latas = new List<Lata>();
@@ -39,29 +37,7 @@ namespace LibreriaExpendedora.Expendedor
         }
 
 
-        public void ControlDeCapacidadYAgregarLata() 
-        {
-            try
-            {
-                if (_latas.Count > Capacidad)
-                {
-                    throw new CapacidadInsuficienteExepcion("Capacidad de la maquina llena");
-                }
-                else
-                {
-                    AgregarLata();
-                }
-            }
-            catch (CapacidadInsuficienteExepcion Cap)
-            {
-                Console.WriteLine(Cap.Message);
-            }
-            catch (Exception Ex)
-            {
-                Console.WriteLine(Ex.Message);
-            }
-        }
-        private void AgregarLata() 
+        public void AgregarLata() 
         {
             string Codigo ="";
             string Nombre = "";
@@ -73,6 +49,9 @@ namespace LibreriaExpendedora.Expendedor
             bool flag = false;
 
             Console.WriteLine("Ingrese el codigo de la lata");
+
+            ValidacionesClase validaciones = new ValidacionesClase();
+
             do
             {
                 try
@@ -113,10 +92,26 @@ namespace LibreriaExpendedora.Expendedor
             Console.WriteLine("Ingrese el Volumen");
             validaciones.ValidarDouble(ref Volumen);
 
-            Console.WriteLine("Ingrese la Cantidad");
-            validaciones.ValidarNumeroEntero(ref Cantidad);
 
-            AgregarLataLista(Codigo,Nombre,Sabor,Precio,Volumen,Cantidad);
+            do {
+                Console.WriteLine("Ingrese la Cantidad");
+                validaciones.ValidarNumeroEntero(ref Cantidad);
+
+                if (Cantidad > Capacidad)
+                {
+                    Console.WriteLine("No hay mas capacidad en la expendedora" +
+                        $"\nLe restan {Capacidad} de espacio");
+                    flag = false;
+                }
+                else 
+                {
+                    flag = true;
+                }
+
+            } while (flag!=true);
+
+
+            AgregarLataLista(Codigo, Nombre, Sabor, Precio, Volumen, Cantidad);
 
 
         }
@@ -164,8 +159,7 @@ namespace LibreriaExpendedora.Expendedor
         {
             List<string> lista = new List<string>();
 
-            if (_latas.Count == 0) //POR MAS QUE CARGUE LOS DATOS DE MANERA MANUAL, IGUAL NO ME SALTAN LOS DATOS
-                //DICE QUE NO TIENE REFERENCIA LA LISTA
+            if (_latas.Count > 0) 
             {
                 foreach (Lata lata in _latas)
                 {

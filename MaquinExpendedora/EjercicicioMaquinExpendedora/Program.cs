@@ -39,13 +39,10 @@ namespace EjercicicioMaquinExpendedora
 
         static void IngresoDatosExpendedora(ref string IngresoProveedor,ref int CantidadIngreso)
         {
-            string Proveedor = "";
-            int Cantidad = -1;
-
             Console.WriteLine("Ingrese Proveedor");
-            validaciones.ValidarString(ref Proveedor);
+            validaciones.ValidarString(ref IngresoProveedor);
             Console.WriteLine("Ingrese la cantidad maxima");
-            validaciones.ValidarNumeroEntero(ref Cantidad);
+            validaciones.ValidarNumeroEntero(ref CantidadIngreso);
 
 
         }
@@ -78,10 +75,10 @@ namespace EjercicicioMaquinExpendedora
                         Console.WriteLine("Maquina Encendida");
                         break;
                     case 1:
-                        MostrarStock(expen.Encendido); //Mando el bool para saber si esta encendido la maquina
+                        MostrarStock(expen); //Mando el bool para saber si esta encendido la maquina
                         break;
                     case 2:
-                        IngresarLata(expen.Encendido);
+                        IngresarLata(expen);
                         break;
                     case 3:
                         break;
@@ -100,19 +97,20 @@ namespace EjercicicioMaquinExpendedora
 
             } while (flag != true);
         }
-        static void IngresarLata(bool Encendido)
+        static void IngresarLata(object B)
         {
-            Expendedora IngresarStockExpendedora = new Expendedora();
+            Expendedora ingreso = (Expendedora) B;
 
             bool flag = true;
 
-            flag = validaciones.ValidarEncenderMaquina(Encendido);
+            flag = validaciones.ValidarEncenderMaquina(ingreso.Encendido);
 
             if (flag == true) 
             {
-                IngresarStockExpendedora.ControlDeCapacidadYAgregarLata();
+                flag = validaciones.ControlDeCapacidad(ingreso.Latas.Count(), ingreso.Capacidad);
 
-                //Me salta el error de que no esta instanciada la clase
+                if (flag==true)
+                ingreso.AgregarLata();
             }
 
         }
@@ -121,16 +119,32 @@ namespace EjercicicioMaquinExpendedora
 
         static void ObtenerBalance(Expendedora Ex) { }
 
-        static void MostrarStock(bool Encendido) 
+        static void MostrarStock(object B) 
         {
-            Expendedora MostrarStockExpendedora = new Expendedora();
+            Expendedora MostrarStockExpendedora = (Expendedora) B;
 
             bool flag = true;
+            List<string> Listar;
 
-            flag = validaciones.ValidarEncenderMaquina(Encendido);
+            flag = validaciones.ValidarEncenderMaquina(MostrarStockExpendedora.Encendido);
 
-            if (flag==true)
-            validaciones.ValidarLista(MostrarStockExpendedora.MostrarLista());
+            if (flag == true) 
+            {
+                validaciones.ValidarLista(MostrarStockExpendedora.MostrarLista());
+                Listar = MostrarStockExpendedora.MostrarLista();
+
+                if (Listar.Count()>0) 
+                {
+                    Console.WriteLine("LISTADO = ");
+                    foreach (string Item in Listar)
+                    {
+                        Console.WriteLine(" " + Item);  //Para mostrar la lista, uno por uno
+                    }
+                }
+               
+            }
+            
+
         }
 
     }
