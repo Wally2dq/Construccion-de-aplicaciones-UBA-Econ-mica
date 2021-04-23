@@ -35,7 +35,7 @@ namespace LibreriaFacultad
 
             Empleado emple = (Empleado)obj;
 
-            if (emple.Legajo == this.Legajo) //Ya se encuentra el legajo en la lista
+            if (emple.Legajo != this.Legajo) //Ya se encuentra el legajo en la lista
                 return false;
 
             return true;

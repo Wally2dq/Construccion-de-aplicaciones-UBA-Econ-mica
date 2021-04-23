@@ -11,7 +11,7 @@ namespace ProyectoFacultad
     {
         static private ControlesFacultad facu;
         static private ValidacionesClase validaciones;
-        Program() 
+        Program()
         {
             facu = new ControlesFacultad();
             validaciones = new ValidacionesClase();
@@ -20,13 +20,15 @@ namespace ProyectoFacultad
         {
         }
 
-        static void CargarAlumno() 
+        static void CargarAlumno()
         {
-            int Codigo ;
+            int Codigo;
             string Nombre;
             string Apellido;
 
-            
+            bool flag = true;
+
+
 
             Console.WriteLine("Ingrese" +
                 "\nEl codigo del alumno");
@@ -36,9 +38,52 @@ namespace ProyectoFacultad
             Nombre = validaciones.ValidarString();
 
             Console.WriteLine("El apellido del alumno");
-            Apellido= validaciones.ValidarString();
+            Apellido = validaciones.ValidarString();
 
-            facu.AgregarAlumno(Codigo,Nombre,Apellido);
+            try
+            {
+                facu.AgregarAlumno(Codigo, Nombre, Apellido);
+            }
+            catch (AlumnoExistenteException alu)
+            {
+                Console.WriteLine(alu.Message);
+                flag = false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                flag = false;
+            }
+
+            if (flag == true)
+                facu.OperacionExistosa();
+
+        }
+        static void EliminarAlumno()
+        {
+            bool flag = false;
+            int Codigo;
+
+            Console.WriteLine("Ingrese el codigo del alumno a eliminar");
+            Codigo = validaciones.ValidarNumeroEntero();
+
+            try
+            {
+                facu.EliminarAlumno(Codigo);
+            }
+            catch (AlumnoInexistenteExepcion inex)
+            {
+                Console.WriteLine(inex.Message);
+                flag = true;
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+                flag = true;
+            }
+
+            if (flag == false)
+                facu.OperacionExistosa();
         }
     }
 }

@@ -20,26 +20,51 @@ namespace LibreriaFacultad
             _empleado = new List<Empleado>();
         }
 
-        private string OperacionExistosa() 
-        {
-            return "Operacion Exitosa";
-        }
 
         public void AgregarAlumno(int Codigo,string Nombre,string Apellido) 
         {
-            Alumno alumno = new Alumno(Codigo, Nombre, Apellido);
+            bool flag = true;
 
-            _alumnos.Add(alumno);
+            Alumno cargaralumno = new Alumno(Codigo, Nombre, Apellido);
 
-            OperacionExistosa();
+            foreach (Alumno alu in _alumnos) 
+            {
+                if ((alu.Equals(cargaralumno)) == false)
+                {
+                    flag = alu.Equals(cargaralumno);
+                    throw new AlumnoExistenteException("Codigo registrado");
+                }
+
+            }
+
+            if (flag==true)
+            _alumnos.Add(cargaralumno);
+            
 
         }
 
-
+        public string OperacionExistosa() 
+        {
+            return "OperacionExitosa";
+        }
 
         public void AgregarEmpleado() { }
 
-        public void EliminarAlumno() { }
+        public void EliminarAlumno(int Codigo) 
+        {
+            foreach (Alumno alu in _alumnos) 
+            {
+                if (Codigo == alu.Codigo)
+                {
+                    _alumnos.Remove(alu);
+                    break;
+                }
+                else 
+                {
+                    throw new AlumnoInexistenteExepcion("No existe alumno");
+                }
+            }
+        }
 
         public void EliminarEmpleado() { }
 
@@ -47,7 +72,10 @@ namespace LibreriaFacultad
 
         public List<Alumno> TraerAlumno(object obj)
         {
-            throw new NotImplementedException();
+            foreach (Alumno alu in _alumnos) 
+            {
+                //Seguir
+            }
         }
 
         public Empleado TaerEmpleadoPorLegajo()

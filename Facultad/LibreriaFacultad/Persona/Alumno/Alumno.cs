@@ -27,5 +27,22 @@ namespace LibreriaFacultad
         {
             return GetCredencial();
         }
+
+        public override bool Equals(object obj)
+        {
+
+            if (obj == null)
+                return false;
+
+            if (!(obj is Alumno)) //El objeto No es Empleado
+                return false;
+
+            Alumno alumno = (Alumno)obj;
+
+            if (alumno.Codigo != this.Codigo) //Ya se encuentra el legajo en la lista
+                return false;
+
+            return true;
+        }
     }
 }
