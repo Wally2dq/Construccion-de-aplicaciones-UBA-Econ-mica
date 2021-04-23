@@ -46,17 +46,17 @@ namespace LibreriaFacultad
         }
         public override string GetCredencial()
         {
-            return $"{Legajo} - {GetNombreCompleto()} salario $ {UltimoSalario()}";
+            return $"Legajo: {Legajo} - Nombre Completo: {GetNombreCompleto()} - Salario ${UltimoSalario()}";
         }
 
         public override string GetNombreCompleto()
         {
-            return GetCredencial();
+            return base.GetNombreCompleto();
         }
 
         public override string ToString()
         {
-            return base.ToString();
+            return GetCredencial();
         }
         public override int GetHashCode()
         {

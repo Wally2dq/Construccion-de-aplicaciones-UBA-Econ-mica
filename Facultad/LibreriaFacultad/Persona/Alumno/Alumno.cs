@@ -11,6 +11,13 @@ namespace LibreriaFacultad
         private int _codigo;
 
         public int Codigo { get => this._codigo; set => this._codigo = value; }
+
+        public Alumno(int CodigoIngreso,string NombreIngreso,string ApellidoIngreso) 
+        {
+            this.Codigo = CodigoIngreso;
+            this.Nombre = NombreIngreso;
+            this.Apellido = ApellidoIngreso;
+        }
         public override string GetCredencial()
         {
             return $"Código {Codigo}) {Apellido}, {Nombre}";

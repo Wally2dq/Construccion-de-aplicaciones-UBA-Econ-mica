@@ -20,12 +20,12 @@ namespace LibreriaFacultad
 
         public double GetSalarioNeto() 
         {
-            return 0;
+            return Bruto - Descuento;
         }
 
         public double SalarioEmpleado() 
         {
-            return 0;
+            return Bruto;
         }
 
     }

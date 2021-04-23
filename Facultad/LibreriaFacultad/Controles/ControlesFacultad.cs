@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibreriaFacultad
 {
-    class ControlesFacultad
+    public class ControlesFacultad
     {
         List<Alumno> _alumnos;
         List<Empleado> _empleado;
@@ -14,7 +14,28 @@ namespace LibreriaFacultad
         private int _cantidadSede;
         private string _nombre;
 
-        public void AgregarAlumno() { }
+        public ControlesFacultad() 
+        {
+            _alumnos = new List<Alumno>();
+            _empleado = new List<Empleado>();
+        }
+
+        private string OperacionExistosa() 
+        {
+            return "Operacion Exitosa";
+        }
+
+        public void AgregarAlumno(int Codigo,string Nombre,string Apellido) 
+        {
+            Alumno alumno = new Alumno(Codigo, Nombre, Apellido);
+
+            _alumnos.Add(alumno);
+
+            OperacionExistosa();
+
+        }
+
+
 
         public void AgregarEmpleado() { }
 
