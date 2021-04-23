@@ -44,5 +44,10 @@ namespace LibreriaFacultad
 
             return true;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

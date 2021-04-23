@@ -8,20 +8,37 @@ namespace LibreriaFacultad
 {
     public abstract class Empleado:Persona
     {
-        List<object> _salario;
+        protected List<object> _salario;
         protected DateTime _fechaIngreso;
         protected int _legajo;
 
         public int Legajo { get => this._legajo; set => this._legajo = value; }
         public DateTime FechaIngreso { get => this._fechaIngreso; set => this._fechaIngreso = value; }
         public DateTime FechaNac { get => this._fechaNac; set => this._fechaNac=value; }
+
+        public List<string> Salarios(object obj) //Preguntar
+        {
+            Empleado salario = (Empleado)obj;
+
+            List<string> _listaSalario = new List<string>();
+
+            foreach (Salario I in salario._salario) //Salario de un empleado determinado
+            {
+                _listaSalario.Add(I.ToString());
+            }
+
+            return _listaSalario;
+
+        }
         public int Antiguedad()
         {
             return (_fechaIngreso.Year - DateTime.Now.Year);
         }
-        public Object UltimoSalario()
+        public object UltimoSalario(object obj)// Preguntar
         {
-            return"";
+            Empleado ultSalario = (Empleado)obj;
+
+            return ultSalario._salario.Last(); //MostrarElUltimo
         }
 
         public override bool Equals(object obj)
@@ -35,19 +52,22 @@ namespace LibreriaFacultad
 
             Empleado emple = (Empleado)obj;
 
-            if (emple.Legajo != this.Legajo) //Ya se encuentra el legajo en la lista
+            if (this.Legajo == emple.Legajo) //Ya se encuentra el legajo en la lista
                 return false;
 
             return true;
-        }
+        } //Consulta !=
 
-        public void AgregarSalario(object Salario) 
+        public void AgregarSalario(object SalarioObj) 
         {
+            Salario salario = (Salario)SalarioObj;
+
+            _salario.Add(salario);
         }
         public override string GetCredencial()
         {
-            return $"Legajo: {Legajo} - Nombre Completo: {GetNombreCompleto()} - Salario ${UltimoSalario()}";
-        }
+            return $"Legajo: {Legajo} - Nombre Completo: {GetNombreCompleto()} - Salario: {UltimoSalario().ToString()} ";
+        } //Preguntar
 
         public override string GetNombreCompleto()
         {

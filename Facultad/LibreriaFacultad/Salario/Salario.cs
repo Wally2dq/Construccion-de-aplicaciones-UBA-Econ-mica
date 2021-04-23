@@ -18,6 +18,15 @@ namespace LibreriaFacultad
         public double Descuento { get => this._descuento; set => this._descuento = value; }
         public DateTime Fecha { get => this._fecha; set => this._fecha = value; }
 
+        public Salario(double BrutoIngreso, string CodigoDeTransferenciaIngreso, double DescuentoIngreso) 
+        {
+            this.Bruto = BrutoIngreso;
+            this.CodigoTranferencia = CodigoDeTransferenciaIngreso;
+            this.Descuento = DescuentoIngreso;
+            this.Fecha = DateTime.Today;
+
+        }
+
         public double GetSalarioNeto() 
         {
             return Bruto - Descuento;
@@ -28,5 +37,12 @@ namespace LibreriaFacultad
             return Bruto;
         }
 
+        public override string ToString()
+        {
+            return "Salario Empleado: " + SalarioEmpleado() +
+                "\n Salario Neto: " + GetSalarioNeto()+
+                $"\n Fecha: {Fecha}";
+
+        }
     }
 }

@@ -14,12 +14,17 @@ namespace LibreriaFacultad
         private int _cantidadSede;
         private string _nombre;
 
-        public ControlesFacultad() 
-        {
-            _alumnos = new List<Alumno>();
-            _empleado = new List<Empleado>();
-        }
+        public int CantidadSede { get => this._cantidadSede; set => this._cantidadSede = value; }
+        public string Nombre { get => this._nombre; set => this._nombre = value; }
 
+        public ControlesFacultad(int CantidadSedeIngreso, string NombreIngreso)
+        {
+            this._alumnos = new List<Alumno>();
+            this._empleado = new List<Empleado>();
+            this.CantidadSede = CantidadSedeIngreso;
+            this.Nombre = NombreIngreso;
+        }
+        
 
         public void AgregarAlumno(int Codigo,string Nombre,string Apellido) 
         {
@@ -48,7 +53,24 @@ namespace LibreriaFacultad
             return "OperacionExitosa";
         }
 
-        public void AgregarEmpleado() { }
+        public void AgregarEmpleado(object obj) 
+        {
+            Empleado introEmple = (Empleado)obj;
+            bool flag = true;
+
+            foreach (Empleado emple in _empleado)
+            {
+                if ((emple.Equals(introEmple)) == false)
+                {
+                    flag = emple.Equals(obj);
+                    throw new AlumnoExistenteException("Legajo registrado");
+                }
+
+            }
+
+            if (flag == true)
+                _empleado.Add(introEmple);
+        } //Mostrar
 
         public void EliminarAlumno(int Codigo) 
         {
@@ -66,21 +88,55 @@ namespace LibreriaFacultad
             }
         }
 
-        public void EliminarEmpleado() { }
+        public void EliminarEmpleado(object obj) 
+        {
+            Empleado emple = (Empleado)obj;
+
+            _empleado.Remove(emple);
+        }
 
         public void ModificarEmpleado() { }
 
-        public List<Alumno> TraerAlumno(object obj)
+        public List<string> TraerAlumno(int Codigo)
         {
+            List<string> _mostrarAlumno = new List<string>();
+
             foreach (Alumno alu in _alumnos) 
             {
-                //Seguir
+                if (Codigo == alu.Codigo)
+                    _mostrarAlumno.Add(alu.ToString());
             }
+
+            return _mostrarAlumno ; 
+        }
+        public List<string> TraerAlumno()
+        {
+            List<string> _mostrarAlumno = new List<string>();
+
+            foreach (Alumno alu in _alumnos)
+            {
+                _mostrarAlumno.Add(alu.ToString());
+            }
+
+            return _mostrarAlumno;
         }
 
-        public Empleado TaerEmpleadoPorLegajo()
+        public Empleado TaerEmpleadoPorLegajo(int legajo) //Preguntar
         {
-            throw new NotImplementedException();
+            Empleado Salida;
+            foreach (Empleado i in _empleado) 
+            {
+                if (i.Legajo == legajo)
+                {
+                    Salida = (Empleado)i;
+                    break;
+                }
+                else 
+                {
+                    throw new AlumnoInexistenteExepcion("No se encontro Alumno");
+                }
+            }
+            return Salida;
         }
 
         public List<Empleado> TraerEmpleado() 
