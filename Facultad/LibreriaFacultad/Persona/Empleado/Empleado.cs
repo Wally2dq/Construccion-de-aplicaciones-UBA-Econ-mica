@@ -8,21 +8,20 @@ namespace LibreriaFacultad
 {
     public abstract class Empleado:Persona
     {
-        protected List<object> _salario;
+        protected List<Salario> _salario;
         protected DateTime _fechaIngreso;
         protected int _legajo;
 
-        public int Legajo { get => this._legajo; set => this._legajo = value; }
-        public DateTime FechaIngreso { get => this._fechaIngreso; set => this._fechaIngreso = value; }
-        public DateTime FechaNac { get => this._fechaNac; set => this._fechaNac=value; }
+        public int Legajo { get => this._legajo;} //El set estara en el constructor
+        public DateTime FechaIngreso { get => this._fechaIngreso;}
+        public DateTime FechaNac { get => this._fechaNac;}
 
-        public List<string> Salarios(object obj) //Preguntar
+        public List<string> Salarios(Empleado obj) //Usar list<Salario> Ver como usarlo
         {
-            Empleado salario = (Empleado)obj;
 
             List<string> _listaSalario = new List<string>();
 
-            foreach (Salario I in salario._salario) //Salario de un empleado determinado
+            foreach (Salario I in obj._salario) //Salario de un empleado determinado
             {
                 _listaSalario.Add(I.ToString());
             }
@@ -34,14 +33,12 @@ namespace LibreriaFacultad
         {
             return (_fechaIngreso.Year - DateTime.Now.Year);
         }
-        public object UltimoSalario(object obj)// Preguntar
+        public Salario UltimoSalario(Empleado obj)// Preguntar
         {
-            Empleado ultSalario = (Empleado)obj;
-
-            return ultSalario._salario.Last(); //MostrarElUltimo
+            return obj._salario.Last(); 
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object obj) //Pongo object aca y en los demas devuelvo la clase directamente
         {
 
             if (obj == null)
@@ -58,15 +55,13 @@ namespace LibreriaFacultad
             return true;
         } //Consulta !=
 
-        public void AgregarSalario(object SalarioObj) 
+        public void AgregarSalario(Salario SalarioObj) 
         {
-            Salario salario = (Salario)SalarioObj;
-
-            _salario.Add(salario);
+            _salario.Add(SalarioObj);
         }
         public override string GetCredencial()
         {
-            return $"Legajo: {Legajo} - Nombre Completo: {GetNombreCompleto()} - Salario: {UltimoSalario().ToString()} ";
+            return $"Legajo: {Legajo} - Nombre Completo: {GetNombreCompleto()} - Salario: " + Convert.ToString(UltimoSalario());
         } //Preguntar
 
         public override string GetNombreCompleto()

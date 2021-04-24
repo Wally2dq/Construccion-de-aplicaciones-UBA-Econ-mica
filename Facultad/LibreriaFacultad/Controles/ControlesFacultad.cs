@@ -53,14 +53,13 @@ namespace LibreriaFacultad
             return "OperacionExitosa";
         }
 
-        public void AgregarEmpleado(object obj) 
+        public void AgregarEmpleado(Empleado obj) 
         {
-            Empleado introEmple = (Empleado)obj;
             bool flag = true;
 
             foreach (Empleado emple in _empleado)
             {
-                if ((emple.Equals(introEmple)) == false)
+                if ((emple.Equals(obj)) == false)
                 {
                     flag = emple.Equals(obj);
                     throw new AlumnoExistenteException("Legajo registrado");
@@ -69,8 +68,8 @@ namespace LibreriaFacultad
             }
 
             if (flag == true)
-                _empleado.Add(introEmple);
-        } //Mostrar
+                _empleado.Add(obj);
+        } 
 
         public void EliminarAlumno(int Codigo) 
         {
@@ -97,7 +96,7 @@ namespace LibreriaFacultad
 
         public void ModificarEmpleado() { }
 
-        public List<string> TraerAlumno(int Codigo)
+        public List<string> TraerAlumno(int Codigo) //Reveer
         {
             List<string> _mostrarAlumno = new List<string>();
 

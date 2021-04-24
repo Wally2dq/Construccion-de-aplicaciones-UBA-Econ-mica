@@ -44,5 +44,6 @@ namespace LibreriaFacultad
                 $"\n Fecha: {Fecha}";
 
         }
+        
     }
 }

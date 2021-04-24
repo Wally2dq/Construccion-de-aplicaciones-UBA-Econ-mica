@@ -18,6 +18,8 @@ namespace ProyectoFacultad
         }
         static void Main(string[] args)
         {
+            //https://github.com/Juliparodi/Facultad
+
         }
 
         static void CargarAlumno()
