@@ -26,24 +26,22 @@ namespace LibreriaFacultad
         }
         
 
-        public void AgregarAlumno(int Codigo,string Nombre,string Apellido) 
+        public void AgregarAlumno(Alumno obj) 
         {
             bool flag = true;
 
-            Alumno cargaralumno = new Alumno(Codigo, Nombre, Apellido);
-
             foreach (Alumno alu in _alumnos) 
             {
-                if ((alu.Equals(cargaralumno)) == false)
+                if ((alu.Codigo.Equals(obj.Codigo)) == true)
                 {
-                    flag = alu.Equals(cargaralumno);
-                    throw new AlumnoExistenteException("Codigo registrado");
+                    flag = false;
+                    throw new AlumnoExistenteException("Codigo ya registrado");
                 }
 
             }
 
-            if (flag==true)
-            _alumnos.Add(cargaralumno);
+            if (flag!=false)
+            _alumnos.Add(obj);
             
 
         }
@@ -59,15 +57,15 @@ namespace LibreriaFacultad
 
             foreach (Empleado emple in _empleado)
             {
-                if ((emple.Equals(obj)) == false)
+                if ((emple.Equals(obj)) == true)
                 {
-                    flag = emple.Equals(obj);
+                    flag = false;
                     throw new AlumnoExistenteException("Legajo registrado");
                 }
 
             }
 
-            if (flag == true)
+            if (flag != false)
                 _empleado.Add(obj);
         } 
 
@@ -87,65 +85,78 @@ namespace LibreriaFacultad
             }
         }
 
-        public void EliminarEmpleado(object obj) 
+        public void EliminarEmpleado(int Legajo) 
         {
-            Empleado emple = (Empleado)obj;
 
-            _empleado.Remove(emple);
-        }
-
-        public void ModificarEmpleado() { }
-
-        public List<string> TraerAlumno(int Codigo) //Reveer
-        {
-            List<string> _mostrarAlumno = new List<string>();
-
-            foreach (Alumno alu in _alumnos) 
+            foreach (Empleado emple in _empleado)
             {
-                if (Codigo == alu.Codigo)
-                    _mostrarAlumno.Add(alu.ToString());
-            }
-
-            return _mostrarAlumno ; 
-        }
-        public List<string> TraerAlumno()
-        {
-            List<string> _mostrarAlumno = new List<string>();
-
-            foreach (Alumno alu in _alumnos)
-            {
-                _mostrarAlumno.Add(alu.ToString());
-            }
-
-            return _mostrarAlumno;
-        }
-
-        public Empleado TaerEmpleadoPorLegajo(int legajo) //Preguntar
-        {
-            Empleado Salida;
-            foreach (Empleado i in _empleado) 
-            {
-                if (i.Legajo == legajo)
+                if (Legajo== emple.Legajo)
                 {
-                    Salida = (Empleado)i;
+                    _empleado.Remove(emple);
                     break;
                 }
-                else 
+                else
                 {
-                    throw new AlumnoInexistenteExepcion("No se encontro Alumno");
+                    throw new EmpleadoInexistenteExepcion("No existe empleado");
                 }
             }
-            return Salida;
+        }
+
+        public void ModificarEmpleado(Empleado obj) 
+        {
+            foreach (Empleado emple in _empleado) 
+            {
+                if (emple.Legajo.Equals(obj.Legajo))
+                {
+                    Empleado Modi = (Empleado)emple;
+                    Modi = obj;
+                }
+                
+            }
+
+        }
+
+        public Alumno TraerAlumnoCodigo(int CodigoIngreso) //
+        {
+
+            if ((_alumnos.SingleOrDefault(i => i.Codigo == CodigoIngreso)) == null) //Busco el dato y si es null salta la exepcion
+                throw new AlumnoInexistenteExepcion("No se registra Alumno con ese Codigo");
+
+            return _alumnos.SingleOrDefault(i => i.Codigo == CodigoIngreso); // el single default al no encotrarlo me devuelve null
+ 
+        }
+
+        
+        public List<Alumno> TraerAlumno()
+        {
+            if (_alumnos.Count == 0)
+                throw new ListaSinDatosExpecion("No hay datos Cargados");
+
+            return _alumnos;
+        }
+
+        public Empleado TaerEmpleadoPorLegajo(int legajoIngreso) //Preguntar
+        {
+            if ((_empleado.SingleOrDefault(i => i.Legajo == legajoIngreso)) == null)
+                throw new EmpleadoExistenteException("No se registra Empleado con ese registro");
+
+            return _empleado.SingleOrDefault(i=>i.Legajo==legajoIngreso);
         }
 
         public List<Empleado> TraerEmpleado() 
         {
-            throw new NotImplementedException();
+            if (this._empleado.Count == 0)
+                throw new ListaSinDatosExpecion("No se registran datos registrados");
+
+            return this._empleado;
         }
 
-        public List<Empleado> TraerEmpleadoPorNombre() 
+        public List<Empleado> TraerEmpleadoPorNombre(string NombreIngreso)
         {
-            throw new NotImplementedException();
+            if (this._empleado.SingleOrDefault(i => i.Nombre == NombreIngreso) == null)
+                throw new EmpleadoExistenteException("No se registra Empleado con ese Nombre");
+
+            return this._empleado.Where(emp => emp.Nombre == NombreIngreso).ToList();
         }
 
 

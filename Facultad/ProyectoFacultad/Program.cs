@@ -42,9 +42,13 @@ namespace ProyectoFacultad
             Console.WriteLine("El apellido del alumno");
             Apellido = validaciones.ValidarString();
 
+            
             try
             {
-                facu.AgregarAlumno(Codigo, Nombre, Apellido);
+                Alumno cargarAlumno = new Alumno(Codigo, Nombre, Apellido);
+
+                facu.AgregarAlumno(cargarAlumno);
+                flag = true;
             }
             catch (AlumnoExistenteException alu)
             {
@@ -90,22 +94,16 @@ namespace ProyectoFacultad
         static void MostrarAlumnoEspecifico()
         {
             int Codigo;
-            List<string> _alumnoMostrar = new List<string>();
 
             Console.WriteLine("Ingrese el codigo del alumno");
             Codigo = validaciones.ValidarNumeroEntero();
 
             try
             {
-                _alumnoMostrar = facu.TraerAlumno(Codigo);
-                if (_alumnoMostrar.Count == 0)
-                    throw new AlumnoInexistenteExepcion("No se encontro el alumno");
-                else
-                {
-                    Console.WriteLine(_alumnoMostrar);
-                }
+                Alumno mostar = facu.TraerAlumnoCodigo(Codigo);
+                Console.WriteLine(mostar.ToString());
             }
-            catch (AlumnoExistenteException alu)
+            catch (AlumnoInexistenteExepcion alu)
             {
                 Console.WriteLine(alu.Message);
             }
@@ -117,19 +115,18 @@ namespace ProyectoFacultad
         }
         static void MostrarTodosLosAlumnos() 
         {
-            List<string> _mostrar = new List<string>();
+            
 
             try
             {
-                _mostrar = facu.TraerAlumno();
-                if (_mostrar.Count == 0)
-                    throw new AlumnoInexistenteExepcion("No se encontro el alumno");
-                else
+                List < Alumno > _aluList = facu.TraerAlumno();
+
+                foreach (Alumno i in _aluList) 
                 {
-                    Console.WriteLine(_mostrar);
+                    Console.WriteLine(i.ToString());
                 }
             }
-            catch (AlumnoExistenteException alu)
+            catch (ListaSinDatosExpecion alu)
             {
                 Console.WriteLine(alu.Message);
             }

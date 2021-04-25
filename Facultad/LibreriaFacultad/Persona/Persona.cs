@@ -12,8 +12,8 @@ namespace LibreriaFacultad
         protected DateTime _fechaNac;
         protected string _nombre;
 
-        public string Apellido { get => this._apellido;}
-        public string Nombre { get => this._nombre;}
+        public string Apellido { get => this._apellido; set => _apellido = value; }
+        public string Nombre { get => this._nombre; set => _nombre = value; }
         public int Edad() 
         {
             return (_fechaNac.Year - DateTime.Now.Year);

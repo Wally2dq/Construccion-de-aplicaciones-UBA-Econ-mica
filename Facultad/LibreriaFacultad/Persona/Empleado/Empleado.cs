@@ -12,36 +12,32 @@ namespace LibreriaFacultad
         protected DateTime _fechaIngreso;
         protected int _legajo;
 
-        public int Legajo { get => this._legajo;} //El set estara en el constructor
-        public DateTime FechaIngreso { get => this._fechaIngreso;}
-        public DateTime FechaNac { get => this._fechaNac;}
+        public int Legajo { get => this._legajo; set => this.Legajo = value; } //El set estara en el constructor
+        public DateTime FechaIngreso { get => this._fechaIngreso; set => this.FechaIngreso = value; }
+        public DateTime FechaNac { get => this._fechaNac; set => this.FechaNac = value; }
 
-        public List<string> Salarios(Empleado obj) //Usar list<Salario> Ver como usarlo
+        public List<Salario> Salarios() 
         {
-
-            List<string> _listaSalario = new List<string>();
-
-            foreach (Salario I in obj._salario) //Salario de un empleado determinado
-            {
-                _listaSalario.Add(I.ToString());
-            }
-
-            return _listaSalario;
-
+            if (_salario.Count == 0)
+                throw new ListaSinDatosExpecion("No hay datos Cargados");
+            return _salario;
         }
         public int Antiguedad()
         {
             return (_fechaIngreso.Year - DateTime.Now.Year);
         }
-        public Salario UltimoSalario(Empleado obj)// Preguntar
+        public Salario UltimoSalario()
         {
-            return obj._salario.Last(); 
+            if (_salario.Count == 0)
+                throw new ListaSinDatosExpecion("No hay datos Cargados");
+
+            return _salario.Last(); 
         }
 
         public override bool Equals(object obj) //Pongo object aca y en los demas devuelvo la clase directamente
         {
 
-            if (obj == null)
+            if (obj == null)  //Objeto Nulo
                 return false;
 
             if (!(obj is Empleado)) //El objeto No es Empleado
@@ -49,11 +45,11 @@ namespace LibreriaFacultad
 
             Empleado emple = (Empleado)obj;
 
-            if (this.Legajo == emple.Legajo) //Ya se encuentra el legajo en la lista
+            if (this.Legajo != emple.Legajo) // no encuentra el legajo en la lista, es falso, no son iguales
                 return false;
 
             return true;
-        } //Consulta !=
+        } 
 
         public void AgregarSalario(Salario SalarioObj) 
         {
@@ -61,8 +57,10 @@ namespace LibreriaFacultad
         }
         public override string GetCredencial()
         {
-            return $"Legajo: {Legajo} - Nombre Completo: {GetNombreCompleto()} - Salario: " + Convert.ToString(UltimoSalario());
-        } //Preguntar
+            Salario sala = UltimoSalario();
+            return $"Legajo: {Legajo} - Nombre Completo: {GetNombreCompleto()} - " +
+                $"\n Ultimo Salario: {sala.ToString()}" + Convert.ToString(UltimoSalario());
+        } 
 
         public override string GetNombreCompleto()
         {

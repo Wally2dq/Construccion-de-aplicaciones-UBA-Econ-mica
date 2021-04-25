@@ -41,12 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exepciones\EmpleadoInexistenteExepcion.cs" />
     <Compile Include="Exepciones\AlumnoInexistenteExepcion.cs" />
     <Compile Include="Exepciones\AlumnoExistenteException.cs" />
     <Compile Include="Controles\ControlesFacultad.cs" />
     <Compile Include="Exepciones\EmpleadoExistenteException.cs" />
     <Compile Include="Exepciones\NegativoExpecion.cs" />
     <Compile Include="Exepciones\FechaPostExpecion.cs" />
+    <Compile Include="Exepciones\ListaSinDatosExpecion.cs" />
     <Compile Include="Persona\Alumno\Alumno.cs" />
     <Compile Include="Persona\Empleado\TipoEmpleado\Bedel.cs" />
     <Compile Include="Persona\Empleado\TipoEmpleado\Directivo.cs" />

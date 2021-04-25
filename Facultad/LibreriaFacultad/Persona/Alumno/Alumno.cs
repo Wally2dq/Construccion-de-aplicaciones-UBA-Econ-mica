@@ -34,12 +34,12 @@ namespace LibreriaFacultad
             if (obj == null)
                 return false;
 
-            if (!(obj is Alumno)) //El objeto No es Empleado
+            if (!(obj is Alumno)) //El objeto No es un Empleado
                 return false;
 
             Alumno alumno = (Alumno)obj;
 
-            if (alumno.Codigo != this.Codigo) //Ya se encuentra el legajo en la lista
+            if (alumno.Codigo != this.Codigo) //Si es dintinto a un codigo ya registrado = falso, no son equal o iguales
                 return false;
 
             return true;
