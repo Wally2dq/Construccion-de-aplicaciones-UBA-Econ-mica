@@ -22,9 +22,10 @@ namespace ProyectoVentaRespuesto
                 "\n 2 Quitar Respuesto" +
                 "\n 3 Modificar Precio" +
                 "\n 4 Agregar Stock" +
-                "\n 4 Quitar Stock" +
-                "\n 5 Traer Por Categoria" +
-                "\n 6 SALIR";
+                "\n 5 Quitar Stock" +
+                "\n 6 Traer Por Categoria" +
+                "\n 7 Mostrar Todo" +
+                "\n 8 Salir ";
 
         }
 
@@ -59,8 +60,20 @@ namespace ProyectoVentaRespuesto
                         break;
                     case 3:
                         ModificarPrecioMemu(res);
-                        break
+                        break;
+                    case 4:
+                        AgregarStockMenu(res);
+                        break;
+                    case 5:
+                        EliminarStockMenu(res);
+                        break;
                     case 6:
+                        MostrarlistaMenu(res);
+                        break;
+                    case 7:
+                        MostrarTod(res);
+                        break;
+                    case 8:
                         flag = false;
                         Console.WriteLine("Hasta Pronto");
                         break;
@@ -175,5 +188,121 @@ namespace ProyectoVentaRespuesto
             }
 
         }
+
+        static void AgregarStockMenu(CotrolesVentaRes obj) 
+        {
+            CotrolesVentaRes res = (CotrolesVentaRes)obj;
+
+            int Codigo;
+            int Stock;
+
+            Console.WriteLine("Ingrese el codigo del respuesto");
+            Codigo = validar.ValidarNumeroEntero();
+
+            Console.WriteLine("Ingrese el stock a sumar");
+            Stock = validar.ValidarNumeroEntero();
+
+            try
+            {
+                res.AgregarStock(Codigo, Stock);
+                Console.WriteLine("Stock Agregado");
+            }
+            catch (CodigoInexistenteExepcion ciex)
+            {
+                Console.WriteLine(ciex.Message);
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        static void EliminarStockMenu(CotrolesVentaRes obj)
+        {
+            CotrolesVentaRes res = (CotrolesVentaRes)obj;
+
+            int Codigo;
+            int Stock;
+
+            Console.WriteLine("Ingrese el codigo del respuesto");
+            Codigo = validar.ValidarNumeroEntero();
+
+            Console.WriteLine("Ingrese el stock a eliminar");
+            Stock = validar.ValidarNumeroEntero();
+
+            try
+            {
+                res.QuitarStock(Codigo, Stock);
+                Console.WriteLine("Stock Quitado");
+            }
+            catch (CodigoInexistenteExepcion ciex)
+            {
+                Console.WriteLine(ciex.Message);
+            }
+            catch (FaltaStock fex) 
+            {
+                Console.WriteLine(fex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        static void MostrarlistaMenu(CotrolesVentaRes obj) 
+        {
+            CotrolesVentaRes res = (CotrolesVentaRes)obj;
+
+            int codigo;
+
+            Console.WriteLine("Ingrese el codigo de Categoria");
+            codigo = validar.ValidarNumeroEntero();
+
+            try
+            {
+                List<Respuesto> _mostrar = res.TraerPorCategorio(codigo);
+
+                foreach (Respuesto Mo in _mostrar)
+                {
+                    Console.WriteLine(Mo.ToString());
+                }
+            }
+            catch (CodigoInexistenteExepcion ciex)
+            {
+                Console.WriteLine(ciex.Message);
+            }
+            catch (ListaSinDatosExepcion lsdex)
+            {
+                Console.WriteLine(lsdex.Message);
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        static void MostrarTod(CotrolesVentaRes obj) 
+        {
+            CotrolesVentaRes res = (CotrolesVentaRes)obj;
+
+            try
+            {
+                List<Respuesto> _lista = res.MostrarRespuestos();
+
+                foreach (Respuesto r in _lista)
+                {
+                    Console.WriteLine(r.ToString());
+                }
+            }
+            catch (ListaSinDatosExepcion lsdex)
+            {
+                Console.WriteLine(lsdex.Message);
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
     }
 }

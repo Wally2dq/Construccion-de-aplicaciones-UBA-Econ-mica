@@ -44,7 +44,7 @@ namespace LibraryVentaRespuesto
         {
             foreach(Respuesto i in _listaProductos)
             {
-                if ((i.CodigoRes.Equals(i.CodigoRes)) == true)
+                if ((i.CodigoRes.Equals(i.CodigoRes)) == false)
                     throw new CodigoInexistenteExepcion("No existe Codigo Registrado");
             }
             return _listaProductos.SingleOrDefault(i=>i.CodigoRes==Codigo);
@@ -65,7 +65,9 @@ namespace LibraryVentaRespuesto
                     _listaProductos.Remove(Res);
                 }
             }
-            
+            if (Res == null)
+                throw new CodigoInexistenteExepcion("No existe Codigo Registrado");
+
         }
 
         public void ModiicarPrecio(int Codigo, double PrecioNuevo) 
@@ -74,6 +76,8 @@ namespace LibraryVentaRespuesto
 
             if (!(res == null))
                 res.Precio = PrecioNuevo;
+            if (res == null)
+                throw new CodigoInexistenteExepcion("No existe Codigo Registrado");
 
         }
 
@@ -83,6 +87,8 @@ namespace LibraryVentaRespuesto
 
             if (!(res == null))
                 res.Stock += StockNuevo;
+            if (res == null)
+                throw new CodigoInexistenteExepcion("No existe Codigo Registrado");
         }
 
         public void QuitarStock(int Codigo, int StockQuitar) 
@@ -100,12 +106,17 @@ namespace LibraryVentaRespuesto
                     res.Stock -= StockQuitar;
                 }
             }
+            if (res == null)
+                throw new CodigoInexistenteExepcion("No existe Codigo Registrado");
         }
 
         public List<Respuesto> TraerPorCategorio(int Categoria) 
         {
             if ((_listaProductos.SingleOrDefault(i => i.CodigoCat == Categoria)) == null)
                 throw new CodigoInexistenteExepcion("No se registra Codigo de Categorio");
+
+            if (_listaProductos.Count == 0)
+                throw new ListaSinDatosExepcion("No hay datos Cargados En esta Categoria");
 
             return _listaProductos.Where(i=> i.CodigoCat==Categoria).ToList() ;
         }
