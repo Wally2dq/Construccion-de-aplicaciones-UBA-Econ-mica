@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoIndumentaria", "ProyectoIndumentaria\ProyectoIndumentaria.csproj", "{083755F7-BAEF-463B-8942-8C90ACF45402}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibreriaIndumentaria", "LibreriaIndumentaria\LibreriaIndumentaria.csproj", "{1D1B0CCA-8158-4BA6-B3AE-6478AB0752C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{083755F7-BAEF-463B-8942-8C90ACF45402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{083755F7-BAEF-463B-8942-8C90ACF45402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{083755F7-BAEF-463B-8942-8C90ACF45402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{083755F7-BAEF-463B-8942-8C90ACF45402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D1B0CCA-8158-4BA6-B3AE-6478AB0752C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D1B0CCA-8158-4BA6-B3AE-6478AB0752C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D1B0CCA-8158-4BA6-B3AE-6478AB0752C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D1B0CCA-8158-4BA6-B3AE-6478AB0752C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B290F46-8B60-46EF-B95F-7B7B31732E92}
+	EndGlobalSection
+EndGlobal
