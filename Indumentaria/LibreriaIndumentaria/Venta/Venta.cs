@@ -14,6 +14,17 @@ namespace LibreriaIndumentaria
         private int _estado;
         private int _codigo;
 
+        public int Estado { get => _estado; }
+        public int Codigo { get => _codigo; }
+
+        public Venta(int CodigoIng, int EstadoIng, Cliente ingreso) 
+        {
+            _Items = new List<VentaItem>();
+            _estado = EstadoIng;
+            _codigo = CodigoIng;
+            _Cliente = ingreso;
+        }
+
         public double GetTotalPedido() 
         {
             throw new NotImplementedException();

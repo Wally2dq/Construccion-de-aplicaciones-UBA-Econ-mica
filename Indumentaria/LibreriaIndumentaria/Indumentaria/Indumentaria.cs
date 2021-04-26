@@ -18,10 +18,14 @@ namespace LibreriaIndumentaria
         public string Talle { get => _talle; }
         public double Precio { get => _precio; }
 
-        public override string ToString()
+        public Indumentaria(int Codigo,string talle,double precio,string Origen,double Algodon) :base(Origen,Algodon)
         {
-            return base.ToString();
+            _codigo = Codigo;
+            _talle = talle;
+            _precio = precio;
+            _stock = 3;
         }
+
 
         public override bool Equals(object obj)
         {
@@ -46,5 +50,9 @@ namespace LibreriaIndumentaria
             return base.GetHashCode();
         }
 
+        public override string ToString() 
+        {
+            return $"Codigo {Codigo}, Stock {Stock}, Talle {Talle}, Precio {Precio}, Origen{Origen},Porcentaje de algodon %{PorcentajeAlgodon}";
+        }
     }
 }

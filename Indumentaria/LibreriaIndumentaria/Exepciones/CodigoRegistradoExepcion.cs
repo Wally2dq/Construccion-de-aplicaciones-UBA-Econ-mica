@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace LibreriaIndumentaria
 {
-    public class SioNoException : Exception
+    public class CodigoRegistradoExepcion : Exception
     {
-        public SioNoException(string msg) : base(msg) { }
+        public CodigoRegistradoExepcion(string msg) : base(msg) { }
     }
 }

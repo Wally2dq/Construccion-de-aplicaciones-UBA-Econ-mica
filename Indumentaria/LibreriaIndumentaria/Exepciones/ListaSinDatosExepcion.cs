@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace LibreriaIndumentaria
 {
-    public class SioNoException : Exception
+    public class ListaSinDatosExepcion: Exception
     {
-        public SioNoException(string msg) : base(msg) { }
+        public ListaSinDatosExepcion() : base("Lista sin datos Cagados") { }
     }
 }

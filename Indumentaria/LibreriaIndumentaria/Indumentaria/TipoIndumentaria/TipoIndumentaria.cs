@@ -13,5 +13,12 @@ namespace LibreriaIndumentaria
 
         public string Origen { get => _origen; }
         public double PorcentajeAlgodon { get => _porcentajeAlgodon; }
+
+        public TipoIndumentaria(string Origen, double algodon)
+        {
+            _origen = Origen;
+            _porcentajeAlgodon = algodon;
+        }
+        public TipoIndumentaria() { }
     }
 }

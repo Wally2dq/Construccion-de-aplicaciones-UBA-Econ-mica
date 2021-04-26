@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exepciones\CodigoRegistradoExepcion.cs" />
+    <Compile Include="Exepciones\CodigoNoRegistradoExepcion.cs" />
     <Compile Include="EstadoVenta.cs" />
     <Compile Include="Exepciones\SinStockException.cs" />
+    <Compile Include="Exepciones\ListaSinDatosExepcion.cs" />
+    <Compile Include="Exepciones\NegativoExepcion.cs" />
     <Compile Include="Venta\Cliente.cs" />
     <Compile Include="Indumentaria\TipoIndumentaria\IndumentariaDeportista.cs" />
     <Compile Include="Indumentaria\TipoIndumentaria\IndumentariaCasual.cs" />

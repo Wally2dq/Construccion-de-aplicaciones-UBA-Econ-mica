@@ -12,6 +12,8 @@ namespace LibreriaIndumentaria
 
         private int _cantidad;
 
+        public Indumentaria Prenda { get => this._prenda; }
+
         public VentaItem(int CantidadIngreso, Indumentaria Ingreso) 
         {
             _cantidad = CantidadIngreso;
@@ -20,7 +22,7 @@ namespace LibreriaIndumentaria
 
         public double GetTotal() 
         {
-            throw new NotImplementedException(); 
+            return (this.Prenda.Precio) * (_cantidad); 
         }
 
     }
