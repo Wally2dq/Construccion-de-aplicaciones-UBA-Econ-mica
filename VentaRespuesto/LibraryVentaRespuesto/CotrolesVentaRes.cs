@@ -42,13 +42,12 @@ namespace LibraryVentaRespuesto
 
         private Respuesto BuscarRes(int Codigo) 
         {
-            foreach(Respuesto i in _listaProductos)
-            {
-                if ((i.CodigoRes.Equals(i.CodigoRes)) == false)
-                    throw new CodigoInexistenteExepcion("No existe Codigo Registrado");
-            }
+            if ((_listaProductos.SingleOrDefault(i => i.CodigoRes == Codigo)) == null)
+                throw new CodigoInexistenteExepcion("No existe Codigo Registrado");
+
             return _listaProductos.SingleOrDefault(i=>i.CodigoRes==Codigo);
         }
+
 
         public void QuitarRespuesto(int Codigo) 
         {

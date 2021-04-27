@@ -46,8 +46,8 @@
     <Compile Include="Exepcion\CodigoYaRegistradoExepcion.cs" />
     <Compile Include="CotrolesVentaRes.cs" />
     <Compile Include="Exepcion\NegativoExepcion.cs" />
-    <Compile Include="FaltaStock.cs" />
-    <Compile Include="ListaSinDatosExepcion.cs" />
+    <Compile Include="Exepcion\FaltaStock.cs" />
+    <Compile Include="Exepcion\ListaSinDatosExepcion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Respuesto.cs" />
     <Compile Include="Exepcion\RespuestoStockExpecion.cs" />

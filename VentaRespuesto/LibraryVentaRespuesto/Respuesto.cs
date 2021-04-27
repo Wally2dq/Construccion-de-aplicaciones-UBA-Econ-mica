@@ -8,8 +8,6 @@ namespace LibraryVentaRespuesto
 {
     public sealed class Respuesto : Categoria
     {
-        Categoria _categoriaRes;
-
         private int _codigoRespuesto;
         private string _nombreRes;
         private double _precio;
@@ -47,9 +45,10 @@ namespace LibraryVentaRespuesto
 
         public override string ToString()
         {
-            return $"Codigo Categorio {_categoriaRes.CodigoCat}, Nombre Categorio {_categoriaRes.NombreCat}" +
+
+            return $"Codigo Categorio {CodigoCat}, Nombre Categorio {NombreCat}" +
                 $"\n Respuesto :" +
-                $"\n Codigo {CodigoRes}, Nombre {NombreCat}, Precio ${Precio}, Stock {Stock} ";
+                $"\n Codigo {CodigoRes}, Nombre {NombreRes}, Precio ${Precio}, Stock {Stock} ";
         }
 
         public override int GetHashCode()
