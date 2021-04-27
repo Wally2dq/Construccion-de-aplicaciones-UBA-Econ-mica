@@ -11,7 +11,7 @@ namespace LibreriaIndumentaria
         List<Indumentaria> _Inventario;
         List<Venta> _Ventas;
 
-        private int UltimoCodigo;
+        private int UltimoCodigo=0;
 
         public TiendaRopa() 
         {
@@ -88,6 +88,9 @@ namespace LibreriaIndumentaria
         }
         public List<Venta> ListarOrden() 
         {
+            if (_Ventas.Count == 0)
+                throw new ListaSinDatosExepcion();
+
             return _Ventas;
         }
 

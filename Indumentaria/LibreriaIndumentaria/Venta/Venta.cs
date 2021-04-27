@@ -27,7 +27,19 @@ namespace LibreriaIndumentaria
 
         public double GetTotalPedido() 
         {
-            throw new NotImplementedException();
+            double total = 0;
+
+            foreach (VentaItem i in _Items) 
+            {
+                total += i.GetTotal();
+            }
+            
+            return total ;
+        }
+        public override string ToString()
+        {
+
+            return $"{Codigo}) {_Cliente.Apellido}, {_Cliente.Nombre} Cliente, {_Items.Count()} prendas, $ total pedido"+GetTotalPedido();
         }
 
     }
