@@ -29,7 +29,7 @@ namespace LibraryVentaRespuesto
 
             foreach (Respuesto res in _listaProductos) 
             {
-                if ((res.CodigoRes.Equals(obj.CodigoRes)) ==true) 
+                if ((res.Equals(obj)) ==true) 
                 {
                     flag = false;
                     throw new CodigoYaRegistradoExepcion("Codigo ya registrado del respuesto");
@@ -86,9 +86,14 @@ namespace LibraryVentaRespuesto
             Respuesto res = BuscarRes(Codigo);
 
             if (!(res == null))
+            {
                 res.Stock += StockNuevo;
-            if (res == null)
+            }
+            else 
+            {
                 throw new CodigoInexistenteExepcion("No existe Codigo Registrado");
+            }
+              
         }
 
         public void QuitarStock(int Codigo, int StockQuitar) 

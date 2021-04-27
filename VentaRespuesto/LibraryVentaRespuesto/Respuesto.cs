@@ -8,6 +8,8 @@ namespace LibraryVentaRespuesto
 {
     public sealed class Respuesto : Categoria
     {
+        Categoria _categoriaRes;
+
         private int _codigoRespuesto;
         private string _nombreRes;
         private double _precio;
@@ -15,18 +17,16 @@ namespace LibraryVentaRespuesto
 
         public double Precio { get => this._precio; set => this._precio = value; }
         public int Stock { get => this._stock; set => this._stock = value; }
-        public int CodigoRes { get => this._codigoRespuesto; set => this._codigoRespuesto = value; }
-        public string NombreRes { get => this._nombreRes; set => this._nombreRes=value; }
+        public int CodigoRes { get => this._codigoRespuesto;}
+        public string NombreRes { get => this._nombreRes;}
 
 
-        public Respuesto(int CodigoIngCate, string NombreIngCate, int CodigoIng,string NombreIng,double PrecioIng,int StockIng)
+        public Respuesto(int CodigoIngCate, string NombreIngCate, int CodigoIng, string NombreIng, double PrecioIng, int StockIng) : base(CodigoIngCate, NombreIngCate)
         {
-            CodigoCat = CodigoIngCate; //Categorio
-            NombreCat = NombreIngCate; //Categoria
-            CodigoRes = CodigoIng;
-            NombreRes = NombreIng;
-            Precio = PrecioIng;
-            Stock = StockIng;
+            _codigoRespuesto = CodigoIng;
+            _nombreRes = NombreIng;
+            _precio = PrecioIng;
+            _stock = StockIng;
         }
 
         public override bool Equals(object obj)
@@ -47,7 +47,7 @@ namespace LibraryVentaRespuesto
 
         public override string ToString()
         {
-            return $"Codigo Categorio {CodigoCat}, Nombre Categorio {NombreCat}" +
+            return $"Codigo Categorio {_categoriaRes.CodigoCat}, Nombre Categorio {_categoriaRes.NombreCat}" +
                 $"\n Respuesto :" +
                 $"\n Codigo {CodigoRes}, Nombre {NombreCat}, Precio ${Precio}, Stock {Stock} ";
         }

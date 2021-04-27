@@ -11,7 +11,14 @@ namespace LibraryVentaRespuesto
         protected int _codigoCat;
         protected string _nombreCat;
 
-        public int CodigoCat{ get => this._codigoCat; set => this._codigoCat = value; }
-        public string NombreCat { get => this._nombreCat; set => this._nombreCat = value; }
+        public int CodigoCat{ get => this._codigoCat;}
+        public string NombreCat { get => this._nombreCat; }
+
+        public Categoria(int Codigo, string Nombre) 
+        {
+            _codigoCat = Codigo;
+            _nombreCat = Nombre;
+        }
+
     }
 }
