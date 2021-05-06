@@ -29,6 +29,7 @@ namespace PraticaClaseDosFormulario
             {
                 if (textBoxContraseña.Text == "1234")
                 {
+                    LimpiarCampos();
 
                     MenuProfesor menu = new MenuProfesor(this);
 
@@ -39,16 +40,19 @@ namespace PraticaClaseDosFormulario
                 }
                 else 
                 {
+                    textBoxContraseña.Clear();
+                    textBoxContraseña.Focus();
                     MessageBox.Show("Contraseña incorecta");
                 }
             }
             else 
             {
+                LimpiarCampos();
+                textBoxUsuario.Focus(); //hace que este sobre este box para poner de vuelta el usuario
                 MessageBox.Show("Usuario Incorrecto");
             }
 
-
-            LimpiarCampos();
+;
         }
 
         

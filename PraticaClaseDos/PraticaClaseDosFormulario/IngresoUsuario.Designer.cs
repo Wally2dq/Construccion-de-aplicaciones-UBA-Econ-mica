@@ -80,6 +80,7 @@ namespace PraticaClaseDosFormulario
             this.textBoxContraseña.Name = "textBoxContraseña";
             this.textBoxContraseña.Size = new System.Drawing.Size(86, 20);
             this.textBoxContraseña.TabIndex = 4;
+            this.textBoxContraseña.UseSystemPasswordChar = true;
             // 
             // IngresoUsuario
             // 
