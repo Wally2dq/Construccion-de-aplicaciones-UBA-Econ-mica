@@ -88,5 +88,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibraryClase2Form\ClassLibraryClase2Form.csproj">
+      <Project>{2f1e1681-bd26-438e-badf-5f9c7810c776}</Project>
+      <Name>ClassLibraryClase2Form</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
