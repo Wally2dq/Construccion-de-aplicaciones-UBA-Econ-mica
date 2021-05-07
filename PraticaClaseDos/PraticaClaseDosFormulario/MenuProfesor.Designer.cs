@@ -39,8 +39,9 @@ namespace PraticaClaseDosFormulario
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.textBoxApellido = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxTipoAlumno = new System.Windows.Forms.ComboBox();
             this.listBoxAlumnos = new System.Windows.Forms.ListBox();
+            this.buttonAlta = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -135,21 +136,31 @@ namespace PraticaClaseDosFormulario
             this.checkBox1.Text = "Recursante";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // comboBoxTipoAlumno
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(149, 200);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 11;
+            this.comboBoxTipoAlumno.FormattingEnabled = true;
+            this.comboBoxTipoAlumno.Location = new System.Drawing.Point(149, 200);
+            this.comboBoxTipoAlumno.Name = "comboBoxTipoAlumno";
+            this.comboBoxTipoAlumno.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxTipoAlumno.TabIndex = 11;
             // 
             // listBoxAlumnos
             // 
             this.listBoxAlumnos.FormattingEnabled = true;
-            this.listBoxAlumnos.Location = new System.Drawing.Point(322, 84);
+            this.listBoxAlumnos.Location = new System.Drawing.Point(327, 73);
             this.listBoxAlumnos.Name = "listBoxAlumnos";
-            this.listBoxAlumnos.Size = new System.Drawing.Size(305, 147);
+            this.listBoxAlumnos.Size = new System.Drawing.Size(341, 160);
             this.listBoxAlumnos.TabIndex = 12;
+            // 
+            // buttonAlta
+            // 
+            this.buttonAlta.Location = new System.Drawing.Point(122, 287);
+            this.buttonAlta.Name = "buttonAlta";
+            this.buttonAlta.Size = new System.Drawing.Size(75, 23);
+            this.buttonAlta.TabIndex = 13;
+            this.buttonAlta.Text = "Alta";
+            this.buttonAlta.UseVisualStyleBackColor = true;
+            this.buttonAlta.Click += new System.EventHandler(this.buttonAlta_Click);
             // 
             // MenuProfesor
             // 
@@ -157,8 +168,9 @@ namespace PraticaClaseDosFormulario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(697, 387);
+            this.Controls.Add(this.buttonAlta);
             this.Controls.Add(this.listBoxAlumnos);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxTipoAlumno);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBoxApellido);
             this.Controls.Add(this.textBoxNombre);
@@ -171,6 +183,7 @@ namespace PraticaClaseDosFormulario
             this.Controls.Add(this.label1);
             this.Name = "MenuProfesor";
             this.Text = "MenuProfesor";
+            this.Load += new System.EventHandler(this.MenuProfesor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,7 +201,8 @@ namespace PraticaClaseDosFormulario
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.TextBox textBoxApellido;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxTipoAlumno;
         private System.Windows.Forms.ListBox listBoxAlumnos;
+        private System.Windows.Forms.Button buttonAlta;
     }
 }

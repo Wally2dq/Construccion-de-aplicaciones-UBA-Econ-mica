@@ -15,16 +15,26 @@ namespace PraticaClaseDosFormulario
     {
         private Form Usuario;
         private Profesor profesor;
+
+
         public MenuProfesor(Form UsuarioIngreso)
         {
             Usuario = UsuarioIngreso;
 
             profesor = new Profesor();
 
+            InitializeComponent(); 
+            //Debo poner todo en load 
+        }
+
+        private void MenuProfesor_Load(object sender, EventArgs e)
+        {
             CargarAlumnos(); // Para cargar los datos a la lista
 
-            InitializeComponent();
+            CargarCmb(); // Para carfar los datos del cmb
+
         }
+
 
         private void buttonVolver_Click(object sender, EventArgs e)
         {
@@ -39,13 +49,36 @@ namespace PraticaClaseDosFormulario
 
             foreach (Alumno i in _mostrar) 
             {
-                Alumno alumno = (Alumno) i;
+                //Alumno alumno = (Alumno) i;
 
-                listBoxAlumnos.Items.Add(alumno.ToString());
+                string Mostrar = i.ToString();
+
+                listBoxAlumnos.Items.Add(Mostrar); // Me salta que el objeto es null
             }
 
             
         }
 
+        private void buttonAlta_Click(object sender, EventArgs e)
+        {
+            int NroRegistro;
+            string Nombre;
+            string Apellido;
+            bool Recursante;
+            string Tipo;
+
+            
+        }
+
+       
+
+        private void CargarCmb() 
+        {
+            this.comboBoxTipoAlumno.DataSource = ListaTipoAlumno.MostrarLista();
+
+            this.comboBoxTipoAlumno.DisplayMember = "Descripcion"; //Mostrar descripcion
+
+            this.comboBoxTipoAlumno.ValueMember = "Codigo"; //Valuar el codigo
+        }
     }
 }
