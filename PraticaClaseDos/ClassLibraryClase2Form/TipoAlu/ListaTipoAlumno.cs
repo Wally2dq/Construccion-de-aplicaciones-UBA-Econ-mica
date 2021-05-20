@@ -13,12 +13,12 @@ namespace ClassLibraryClase2Form
             List<TipoAlumno> _lista = new List<TipoAlumno>();
 
             TipoAlumno seleccione = new TipoAlumno(0, "Seleccionar");
-            TipoAlumno soltero = new TipoAlumno(1, "Regular");
-            TipoAlumno casado = new TipoAlumno(2, "Oyente");
+            TipoAlumno regular = new TipoAlumno(1, "Regular");
+            TipoAlumno oyente = new TipoAlumno(2, "Oyente");
 
             _lista.Add(seleccione);
-            _lista.Add(casado);
-            _lista.Add(soltero);
+            _lista.Add(regular);
+            _lista.Add(oyente);
 
             return _lista;
         }

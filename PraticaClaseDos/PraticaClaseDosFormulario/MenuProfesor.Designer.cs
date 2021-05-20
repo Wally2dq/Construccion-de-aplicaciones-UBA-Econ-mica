@@ -38,10 +38,12 @@ namespace PraticaClaseDosFormulario
             this.textBoxNroRegistro = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.textBoxApellido = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkRecursante = new System.Windows.Forms.CheckBox();
             this.comboBoxTipoAlumno = new System.Windows.Forms.ComboBox();
             this.listBoxAlumnos = new System.Windows.Forms.ListBox();
             this.buttonAlta = new System.Windows.Forms.Button();
+            this.btnEliminarAlumno = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -125,16 +127,16 @@ namespace PraticaClaseDosFormulario
             this.textBoxApellido.Size = new System.Drawing.Size(100, 20);
             this.textBoxApellido.TabIndex = 9;
             // 
-            // checkBox1
+            // checkRecursante
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic);
-            this.checkBox1.Location = new System.Drawing.Point(169, 238);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(87, 19);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Recursante";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkRecursante.AutoSize = true;
+            this.checkRecursante.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic);
+            this.checkRecursante.Location = new System.Drawing.Point(162, 240);
+            this.checkRecursante.Name = "checkRecursante";
+            this.checkRecursante.Size = new System.Drawing.Size(87, 19);
+            this.checkRecursante.TabIndex = 10;
+            this.checkRecursante.Text = "Recursante";
+            this.checkRecursante.UseVisualStyleBackColor = true;
             // 
             // comboBoxTipoAlumno
             // 
@@ -162,16 +164,38 @@ namespace PraticaClaseDosFormulario
             this.buttonAlta.UseVisualStyleBackColor = true;
             this.buttonAlta.Click += new System.EventHandler(this.buttonAlta_Click);
             // 
+            // btnEliminarAlumno
+            // 
+            this.btnEliminarAlumno.Location = new System.Drawing.Point(380, 260);
+            this.btnEliminarAlumno.Name = "btnEliminarAlumno";
+            this.btnEliminarAlumno.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarAlumno.TabIndex = 14;
+            this.btnEliminarAlumno.Text = "Eliminar";
+            this.btnEliminarAlumno.UseVisualStyleBackColor = true;
+            this.btnEliminarAlumno.Click += new System.EventHandler(this.btnEliminarAlumno_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(522, 260);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 15;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // MenuProfesor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(697, 387);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.btnEliminarAlumno);
             this.Controls.Add(this.buttonAlta);
             this.Controls.Add(this.listBoxAlumnos);
             this.Controls.Add(this.comboBoxTipoAlumno);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkRecursante);
             this.Controls.Add(this.textBoxApellido);
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.textBoxNroRegistro);
@@ -200,9 +224,11 @@ namespace PraticaClaseDosFormulario
         private System.Windows.Forms.TextBox textBoxNroRegistro;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.TextBox textBoxApellido;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkRecursante;
         private System.Windows.Forms.ComboBox comboBoxTipoAlumno;
         private System.Windows.Forms.ListBox listBoxAlumnos;
         private System.Windows.Forms.Button buttonAlta;
+        private System.Windows.Forms.Button btnEliminarAlumno;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

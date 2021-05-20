@@ -8,11 +8,11 @@ namespace ClassLibraryClase2Form
 {
     public class Validar
     {
-        public double ValidarNumero(string entrada)
+        public int ValidarNumero(string entrada)
         {
-            double salida;
+            int salida;
 
-            if (!double.TryParse(entrada, out salida))//Cuando no se puede transformar el numero, salta este cartel
+            if (!int.TryParse(entrada, out salida))//Cuando no se puede transformar el numero, salta este cartel
             {
 
                 throw new ValidarNumeroException("Ingrese Numeros");
@@ -20,6 +20,17 @@ namespace ClassLibraryClase2Form
             }
 
             return salida;
+        }
+
+        public string ValidarString(string entrada)
+        {
+
+            if (string.IsNullOrEmpty(entrada)) //Valida que no sea Nulo
+            {
+                throw new ValidarStringException(" No deje espacios vacios");
+            }
+
+            return entrada;
         }
     }
 }

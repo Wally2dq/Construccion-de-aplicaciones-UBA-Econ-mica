@@ -15,6 +15,7 @@ namespace PraticaClaseDosFormulario
     {
         private Form Usuario;
         private Profesor profesor;
+        private Validar validar = new Validar();
 
 
         public MenuProfesor(Form UsuarioIngreso)
@@ -35,6 +36,14 @@ namespace PraticaClaseDosFormulario
 
         }
 
+        public void LimpiarCampos() 
+        {
+            textBoxNroRegistro.Clear();
+            textBoxApellido.Clear();
+            textBoxNombre.Clear();
+            comboBoxTipoAlumno.SelectedIndex = 0;
+            checkRecursante.Checked = false;
+        }
 
         private void buttonVolver_Click(object sender, EventArgs e)
         {
@@ -67,6 +76,45 @@ namespace PraticaClaseDosFormulario
             bool Recursante;
             string Tipo;
 
+
+            try
+            {
+                NroRegistro = validar.ValidarNumero(textBoxNroRegistro.Text);
+                Nombre = validar.ValidarString(textBoxNombre.Text);
+                Apellido = validar.ValidarString(textBoxApellido.Text);
+                Recursante = checkRecursante.Checked;
+
+                if (comboBoxTipoAlumno.SelectedIndex == 0)
+                {
+                    throw new ElijaUnaOpcionException("Elija un tipo de alumno");
+                }
+                Tipo = comboBoxTipoAlumno.Text;
+
+                Alumno Cargar = new Alumno(NroRegistro,Nombre,Apellido,Recursante,Tipo);
+
+                profesor.BuscarAlumnoRepetido(Cargar);
+                profesor.CargarAlumno(Cargar);
+
+                LimpiarCampos();
+
+                MessageBox.Show("Carga Existosa");
+            }
+            catch (ElijaUnaOpcionException euoe)
+            {
+                MessageBox.Show(euoe.Message);
+            }
+            catch (ValidarNumeroException VNE)
+            {
+                MessageBox.Show(VNE.Message);
+            }
+            catch (ValidarStringException VSE)
+            {
+                MessageBox.Show(VSE.Message);
+            }
+            catch (CodigoDeAlumnoYaRegistradoException CAYRE) 
+            {
+                MessageBox.Show(CAYRE.Message);
+            }
             
         }
 
@@ -79,6 +127,36 @@ namespace PraticaClaseDosFormulario
             this.comboBoxTipoAlumno.DisplayMember = "Descripcion"; //Mostrar descripcion
 
             this.comboBoxTipoAlumno.ValueMember = "Codigo"; //Valuar el codigo
+        }
+
+        private void btnEliminarAlumno_Click(object sender, EventArgs e)
+        {
+            if (comboBoxTipoAlumno.SelectedIndex == -1)
+            {
+                btnEliminarAlumno.Enabled = false;
+            }
+            else 
+            {
+                try
+                {
+                    Alumno alu = (Alumno)comboBoxTipoAlumno.SelectedValue;
+
+                    profesor.EliminarAlumno(alu);
+                    MessageBox.Show("Alumno Eliminado");
+                }
+                catch (Exception Ex) 
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+                
+            }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            listBoxAlumnos.Items.Clear();
+
+            CargarAlumnos();
         }
     }
 }

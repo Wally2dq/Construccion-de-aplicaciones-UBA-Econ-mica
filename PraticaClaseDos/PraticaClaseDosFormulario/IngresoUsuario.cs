@@ -25,7 +25,7 @@ namespace PraticaClaseDosFormulario
         private void buttonIngreso_Click(object sender, EventArgs e)
         {
 
-            if (textBoxUsuario.Text == "Wal")
+            if (textBoxUsuario.Text == "1234")  //USUARIO 1234 , CONTRASEÑA 1234
             {
                 if (textBoxContraseña.Text == "1234")
                 {

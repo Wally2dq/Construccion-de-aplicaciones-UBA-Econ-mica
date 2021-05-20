@@ -27,5 +27,31 @@ namespace ClassLibraryClase2Form
         {
             return _alumno;
         }
+
+        public void EliminarAlumno(Alumno alu) 
+        {
+            foreach (Alumno i in _alumno) 
+            {
+                if (i.Equals(alu))
+                {
+                    _alumno.Remove(i);
+                    break;
+                }
+            }
+        }
+
+        public void CargarAlumno(Alumno alu) 
+        {
+            _alumno.Add(alu);
+        }
+
+        public void BuscarAlumnoRepetido(Alumno alu) 
+        {
+            foreach (Alumno i in _alumno) 
+            {
+                if (i.Equals(alu))
+                    throw new CodigoDeAlumnoYaRegistradoException("Codigo de alumno ya registrado");
+            }
+        }
     }
 }
