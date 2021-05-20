@@ -16,7 +16,7 @@ namespace ClassLibraryClase2Form
         public string Nombre { get => _nombre; }
         public string Apellido { get => _apellido; }
         public bool Recursante { get => _recursante; }
-        private string TipoAlumno { get => _tipoAlumno; }
+        public string TipoAlumno { get => _tipoAlumno; }
 
         public Alumno(int NroRegistro, string Nombre, string Apellido, bool Recursante, string TipoAlu) : base(Nombre, Apellido) 
         {

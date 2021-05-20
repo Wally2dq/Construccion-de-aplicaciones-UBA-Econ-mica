@@ -54,15 +54,14 @@ namespace PraticaClaseDosFormulario
 
         private void CargarAlumnos()
         {
-            List<Alumno> _mostrar = profesor.MostrarLista();
+            List<Alumno> _mostrar = profesor.MostrarLista();   
 
             foreach (Alumno i in _mostrar) 
             {
                 //Alumno alumno = (Alumno) i;
 
-                string Mostrar = i.ToString();
 
-                listBoxAlumnos.Items.Add(Mostrar); // Me salta que el objeto es null
+                listBoxAlumnos.Items.Add(i.ToString()); 
             }
 
             
@@ -131,24 +130,16 @@ namespace PraticaClaseDosFormulario
 
         private void btnEliminarAlumno_Click(object sender, EventArgs e)
         {
-            if (comboBoxTipoAlumno.SelectedIndex == -1)
+            try
             {
-                btnEliminarAlumno.Enabled = false;
-            }
-            else 
-            {
-                try
-                {
-                    Alumno alu = (Alumno)comboBoxTipoAlumno.SelectedValue;
+                Alumno alu = (Alumno)listBoxAlumnos.SelectedValue;  //Mi Problema es que no me craftea el alumno, es como un alumno NULO 
 
-                    profesor.EliminarAlumno(alu);
-                    MessageBox.Show("Alumno Eliminado");
-                }
-                catch (Exception Ex) 
-                {
-                    MessageBox.Show(Ex.Message);
-                }
-                
+                profesor.EliminarAlumno(alu);
+                MessageBox.Show("Alumno Eliminado");
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -157,6 +148,26 @@ namespace PraticaClaseDosFormulario
             listBoxAlumnos.Items.Clear();
 
             CargarAlumnos();
+        }
+
+        private void btnCargarDatos_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                Alumno alu = (Alumno)listBoxAlumnos.SelectedValue;
+
+                textBoxNroRegistro.Text = alu.NroRegistro.ToString();
+                textBoxNombre.Text = alu.Nombre;
+                textBoxApellido.Text = alu.Apellido;
+                checkRecursante.Checked = alu.Recursante;
+                comboBoxTipoAlumno.SelectedItem = alu.TipoAlumno;
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
         }
     }
 }

@@ -44,6 +44,7 @@ namespace PraticaClaseDosFormulario
             this.buttonAlta = new System.Windows.Forms.Button();
             this.btnEliminarAlumno = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnCargarDatos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -166,7 +167,7 @@ namespace PraticaClaseDosFormulario
             // 
             // btnEliminarAlumno
             // 
-            this.btnEliminarAlumno.Location = new System.Drawing.Point(380, 260);
+            this.btnEliminarAlumno.Location = new System.Drawing.Point(443, 260);
             this.btnEliminarAlumno.Name = "btnEliminarAlumno";
             this.btnEliminarAlumno.Size = new System.Drawing.Size(75, 23);
             this.btnEliminarAlumno.TabIndex = 14;
@@ -176,7 +177,7 @@ namespace PraticaClaseDosFormulario
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(522, 260);
+            this.btnActualizar.Location = new System.Drawing.Point(546, 260);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 15;
@@ -184,12 +185,23 @@ namespace PraticaClaseDosFormulario
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
+            // btnCargarDatos
+            // 
+            this.btnCargarDatos.Location = new System.Drawing.Point(338, 260);
+            this.btnCargarDatos.Name = "btnCargarDatos";
+            this.btnCargarDatos.Size = new System.Drawing.Size(75, 23);
+            this.btnCargarDatos.TabIndex = 16;
+            this.btnCargarDatos.Text = "CargarDatos";
+            this.btnCargarDatos.UseVisualStyleBackColor = true;
+            this.btnCargarDatos.Click += new System.EventHandler(this.btnCargarDatos_Click);
+            // 
             // MenuProfesor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(697, 387);
+            this.Controls.Add(this.btnCargarDatos);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnEliminarAlumno);
             this.Controls.Add(this.buttonAlta);
@@ -230,5 +242,6 @@ namespace PraticaClaseDosFormulario
         private System.Windows.Forms.Button buttonAlta;
         private System.Windows.Forms.Button btnEliminarAlumno;
         private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnCargarDatos;
     }
 }
