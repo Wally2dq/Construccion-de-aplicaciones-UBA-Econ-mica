@@ -154,6 +154,7 @@ namespace PraticaClaseDosFormulario
             this.listBoxAlumnos.Name = "listBoxAlumnos";
             this.listBoxAlumnos.Size = new System.Drawing.Size(341, 160);
             this.listBoxAlumnos.TabIndex = 12;
+            this.listBoxAlumnos.SelectedIndexChanged += new System.EventHandler(this.listBoxAlumnos_SelectedIndexChanged);
             // 
             // buttonAlta
             // 

@@ -16,7 +16,7 @@ namespace PraticaClaseDosFormulario
         private Form Usuario;
         private Profesor profesor;
         private Validar validar = new Validar();
-
+        
 
         public MenuProfesor(Form UsuarioIngreso)
         {
@@ -54,17 +54,9 @@ namespace PraticaClaseDosFormulario
 
         private void CargarAlumnos()
         {
-            List<Alumno> _mostrar = profesor.MostrarLista();   
-
-            foreach (Alumno i in _mostrar) 
-            {
-                //Alumno alumno = (Alumno) i;
-
-
-                listBoxAlumnos.Items.Add(i.ToString()); 
-            }
-
             
+            listBoxAlumnos.DataSource = profesor.MostrarLista();
+
         }
 
         private void buttonAlta_Click(object sender, EventArgs e)
@@ -132,7 +124,7 @@ namespace PraticaClaseDosFormulario
         {
             try
             {
-                Alumno alu = (Alumno)listBoxAlumnos.SelectedValue;  //Mi Problema es que no me craftea el alumno, es como un alumno NULO 
+                Alumno alu = (Alumno)listBoxAlumnos.SelectedValue;//Debo cargar la lista como un DataSource !!
 
                 profesor.EliminarAlumno(alu);
                 MessageBox.Show("Alumno Eliminado");
@@ -145,7 +137,7 @@ namespace PraticaClaseDosFormulario
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            listBoxAlumnos.Items.Clear();
+            listBoxAlumnos.DataSource= null;
 
             CargarAlumnos();
         }
@@ -155,7 +147,7 @@ namespace PraticaClaseDosFormulario
 
             try
             {
-                Alumno alu = (Alumno)listBoxAlumnos.SelectedValue;
+                Alumno alu = (Alumno) listBoxAlumnos.SelectedValue;
 
                 textBoxNroRegistro.Text = alu.NroRegistro.ToString();
                 textBoxNombre.Text = alu.Nombre;
@@ -169,5 +161,22 @@ namespace PraticaClaseDosFormulario
                 MessageBox.Show(Ex.Message);
             }
         }
+
+        private void listBoxAlumnos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxAlumnos.DataSource != null)
+            {
+                btnEliminarAlumno.Enabled = true;
+                btnCargarDatos.Enabled = true;
+            }
+            else 
+            {
+                btnEliminarAlumno.Enabled = false;
+                btnCargarDatos.Enabled = false;
+  
+            }
+        }
+
+        
     }
 }

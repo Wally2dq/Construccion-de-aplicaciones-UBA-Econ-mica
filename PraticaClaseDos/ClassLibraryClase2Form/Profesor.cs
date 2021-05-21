@@ -32,9 +32,10 @@ namespace ClassLibraryClase2Form
         {
             foreach (Alumno i in _alumno) 
             {
-                if (i.Equals(alu))
+                if (i.Equals(alu) == true)
                 {
-                    _alumno.Remove(i);
+                    Alumno borrar = (Alumno)i;
+                    _alumno.Remove(borrar);
                     break;
                 }
             }
@@ -52,6 +53,21 @@ namespace ClassLibraryClase2Form
                 if (i.Equals(alu))
                     throw new CodigoDeAlumnoYaRegistradoException("Codigo de alumno ya registrado");
             }
+        }
+
+
+        public void BuscarGetAlumno(int NumeroRegistro, ref Alumno alumno)
+        {
+            foreach (Alumno i in _alumno)
+            {
+                if (i.NroRegistro == NumeroRegistro) 
+                {
+                    alumno = (Alumno)i;
+                }
+                   
+            }
+
+           
         }
     }
 }

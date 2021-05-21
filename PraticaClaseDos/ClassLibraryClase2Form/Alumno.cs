@@ -33,7 +33,7 @@ namespace ClassLibraryClase2Form
             if (_recursante == true)
                 Muestra = "Si";
 
-            return $"Nro Registro: {_nroRegistro}, Nombre: {_nombre}, Apellido: {_apellido}, Recursante: {Muestra}, Tipo Alumno: {_tipoAlumno}";
+            return $"{_nroRegistro}, Nombre: {_nombre}, Apellido: {_apellido}, Recursante: {Muestra}, Tipo Alumno: {_tipoAlumno}";
         }
 
         public override bool Equals(object obj)
