@@ -23,5 +23,12 @@ namespace FormClientesConUrlDeCarga
             AltaCliente.Show();
             this.Hide();
         }
+
+        private void btnMostrarCliente_Click(object sender, EventArgs e)
+        {
+            FormMostrarClientes MostrarCliente = new FormMostrarClientes(this);
+            MostrarCliente.Show();
+            this.Hide();
+        }
     }
 }

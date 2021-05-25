@@ -62,6 +62,7 @@ namespace FormClientesConUrlDeCarga
             this.btnMostrarCliente.TabIndex = 2;
             this.btnMostrarCliente.Text = "Mostar Clientes";
             this.btnMostrarCliente.UseVisualStyleBackColor = true;
+            this.btnMostrarCliente.Click += new System.EventHandler(this.btnMostrarCliente_Click);
             // 
             // Form1
             // 

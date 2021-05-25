@@ -25,5 +25,29 @@ namespace CapaDatos
             return lst;
         }
 
+        public TransactionResult Insertar(Cliente cliente)
+        {
+            NameValueCollection obj = ReverseMap(cliente);
+
+            string json = WebHelper.Post("cliente", obj);
+
+            TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);
+
+            return lst;
+        }
+        private NameValueCollection ReverseMap(Cliente cliente)
+        {
+            NameValueCollection n = new NameValueCollection();
+            n.Add("id", cliente.id.ToString());
+            n.Add("nombre", cliente.Nombre);
+            n.Add("apellido", cliente.Ape);
+            n.Add("direccion", cliente.Direccion);
+            n.Add("DNI", cliente.DNI);
+            n.Add("fechaNacimiento", "2000-01-01");
+            n.Add("usuario", "1");
+            return n;
+        }
+
+
     }
 }
