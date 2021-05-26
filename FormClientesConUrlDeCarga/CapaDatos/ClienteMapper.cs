@@ -43,8 +43,8 @@ namespace CapaDatos
             n.Add("apellido", cliente.Ape);
             n.Add("direccion", cliente.Direccion);
             n.Add("DNI", cliente.DNI);
-            n.Add("fechaNacimiento", "2000-01-01");
-            n.Add("usuario", "1");
+            n.Add("fechaNacimiento", cliente.fechaNacimiento);
+            n.Add("usuario", cliente.usuario);
             return n;
         }
 

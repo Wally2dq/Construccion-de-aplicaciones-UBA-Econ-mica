@@ -32,13 +32,9 @@ namespace CapaNegocio
             return _listaClientes;
         }
 
-        public TransactionResult Agregar(string nombre, string apellido, string fechaNac, int dni)
+        public TransactionResult Agregar(int id ,string usuario,string nombre, string apellido, string direccion, string dni,string FechaNac)
         {
-            Cliente cliente = new Cliente();
-            cliente.Nombre = nombre;
-            cliente.Ape = apellido;
-            cliente.DNI = dni.ToString();
-
+            Cliente cliente = new Cliente(id,nombre, apellido,dni, direccion, FechaNac, usuario);
 
             return _clinteMapper.Insertar(cliente);
         }

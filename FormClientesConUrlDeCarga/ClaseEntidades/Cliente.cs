@@ -15,6 +15,9 @@ namespace ClaseEntidades
 
         private string _direccion;
         private string _DNI;
+        private string _usuario;
+        private string _fechaNac;
+
 
 
 
@@ -27,11 +30,19 @@ namespace ClaseEntidades
         [DataMember(Name = "direccion")]
         public string Direccion { get => _direccion; set => _direccion = value; }
 
-        public Cliente(int Id,string Nombre,string Apellido, string DNI,string Direccion) : base(Nombre,Apellido)
+        [DataMember(Name = "fechaNacimiento")]
+        public string fechaNacimiento { get => _fechaNac; set => _fechaNac = value; }
+
+        [DataMember(Name = "usuario")]
+        public string usuario { get => _usuario; set => _usuario = value; }
+
+        public Cliente(int id,string Nombre,string Apellido, string DNI,string Direccion, string FechaNac,string Usuario) : base(Nombre,Apellido)
         {
-            _id = Id;
+            _id = id;
             _DNI = DNI;
             _direccion = Direccion;
+            _usuario = Usuario;
+            _fechaNac = FechaNac;
         }
 
         public Cliente()
@@ -42,7 +53,7 @@ namespace ClaseEntidades
 
         public override string ToString()
         {
-            return string.Format($"Cliente {this._id}, Nombre: {this._nombre}, Apellido: {this._apellido}, Dni: {this._DNI}, Direccion: {this._direccion}");
+            return string.Format($"Cliente {this._id}, Usuario: {this._usuario}, Nombre: {this._nombre}, Apellido: {this._apellido}, Dni: {this._DNI}, Direccion: {this._direccion}, Fecha Nacimiento: {this._fechaNac}" );
         }
     }
 }
