@@ -32,11 +32,12 @@ namespace FormClientesConUrlDeCarga
             this.btnAlta = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnMostrarCliente = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAlta
             // 
-            this.btnAlta.Location = new System.Drawing.Point(163, 79);
+            this.btnAlta.Location = new System.Drawing.Point(75, 73);
             this.btnAlta.Name = "btnAlta";
             this.btnAlta.Size = new System.Drawing.Size(202, 47);
             this.btnAlta.TabIndex = 0;
@@ -56,7 +57,7 @@ namespace FormClientesConUrlDeCarga
             // 
             // btnMostrarCliente
             // 
-            this.btnMostrarCliente.Location = new System.Drawing.Point(163, 194);
+            this.btnMostrarCliente.Location = new System.Drawing.Point(75, 183);
             this.btnMostrarCliente.Name = "btnMostrarCliente";
             this.btnMostrarCliente.Size = new System.Drawing.Size(202, 53);
             this.btnMostrarCliente.TabIndex = 2;
@@ -64,11 +65,22 @@ namespace FormClientesConUrlDeCarga
             this.btnMostrarCliente.UseVisualStyleBackColor = true;
             this.btnMostrarCliente.Click += new System.EventHandler(this.btnMostrarCliente_Click);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(278, 292);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 3;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 353);
+            this.ClientSize = new System.Drawing.Size(362, 325);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnMostrarCliente);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAlta);
@@ -84,6 +96,7 @@ namespace FormClientesConUrlDeCarga
         private System.Windows.Forms.Button btnAlta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnMostrarCliente;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
 

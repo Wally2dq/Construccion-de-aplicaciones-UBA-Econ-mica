@@ -12,7 +12,19 @@ namespace ClaseEntidades
     public abstract class Persona
     {
         protected string _nombre;
+
+        protected string _apellido;
         [DataMember]
         public string Nombre { get => _nombre; set => _nombre = value; }
+
+        [DataMember(Name = "apellido")]
+        public string Ape { get => _apellido; set => _apellido = value; }
+
+        public Persona(string Nombre,string Apellido) 
+        {
+            _nombre = Nombre;
+            _apellido = Apellido;
+        }
+        public Persona() { }
     }
 }
