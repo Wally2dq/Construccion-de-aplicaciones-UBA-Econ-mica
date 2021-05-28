@@ -29,6 +29,7 @@ namespace FormClientesConUrlDeCarga
 
         private void FormMostrarClientes_Load(object sender, EventArgs e)
         {
+            listBoxClientes.DataSource = null;
             listBoxClientes.DataSource = _negocio.Traer();
         }
     }
