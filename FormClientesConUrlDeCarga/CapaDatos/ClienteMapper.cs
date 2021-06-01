@@ -43,7 +43,7 @@ namespace CapaDatos
             n.Add("apellido", cliente.Ape);
             n.Add("direccion", cliente.Direccion);
             n.Add("DNI", cliente.DNI);
-            n.Add("fechaNacimiento", cliente.fechaNacimiento);
+            n.Add("fechaNacimiento", cliente.fechaNacimiento.ToString());//Ya viene con el formato de fecha del form
             n.Add("usuario", cliente.usuario);
             return n;
         }

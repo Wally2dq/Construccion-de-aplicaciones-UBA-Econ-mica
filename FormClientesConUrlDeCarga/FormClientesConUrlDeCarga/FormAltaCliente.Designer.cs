@@ -42,14 +42,12 @@ namespace FormClientesConUrlDeCarga
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtFechaNac = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.dateTimeFecha = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(407, 260);
+            this.btnVolver.Location = new System.Drawing.Point(486, 260);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
             this.btnVolver.TabIndex = 0;
@@ -156,37 +154,21 @@ namespace FormClientesConUrlDeCarga
             this.txtUsuario.Size = new System.Drawing.Size(100, 20);
             this.txtUsuario.TabIndex = 12;
             // 
-            // txtFechaNac
+            // dateTimeFecha
             // 
-            this.txtFechaNac.Location = new System.Drawing.Point(346, 146);
-            this.txtFechaNac.Name = "txtFechaNac";
-            this.txtFechaNac.Size = new System.Drawing.Size(100, 20);
-            this.txtFechaNac.TabIndex = 13;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(164, 29);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(16, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Id";
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(198, 26);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 20);
-            this.txtId.TabIndex = 15;
+            this.dateTimeFecha.Location = new System.Drawing.Point(346, 143);
+            this.dateTimeFecha.MaxDate = new System.DateTime(2004, 1, 1, 0, 0, 0, 0);
+            this.dateTimeFecha.Name = "dateTimeFecha";
+            this.dateTimeFecha.Size = new System.Drawing.Size(214, 20);
+            this.dateTimeFecha.TabIndex = 13;
+            this.dateTimeFecha.Value = new System.DateTime(2004, 1, 1, 0, 0, 0, 0);
             // 
             // FormAltaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 295);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtFechaNac);
+            this.ClientSize = new System.Drawing.Size(573, 295);
+            this.Controls.Add(this.dateTimeFecha);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -222,8 +204,6 @@ namespace FormClientesConUrlDeCarga
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtFechaNac;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.DateTimePicker dateTimeFecha;
     }
 }

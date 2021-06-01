@@ -18,6 +18,8 @@ namespace ClaseEntidades
         private string _usuario;
         private string _fechaNac;
 
+        Cuenta _cuenta;
+
 
 
 
@@ -36,9 +38,8 @@ namespace ClaseEntidades
         [DataMember(Name = "usuario")]
         public string usuario { get => _usuario; set => _usuario = value; }
 
-        public Cliente(int id,string Nombre,string Apellido, string DNI,string Direccion, string FechaNac,string Usuario) : base(Nombre,Apellido)
+        public Cliente(string Nombre,string Apellido, string DNI,string Direccion, string FechaNac,string Usuario) : base(Nombre,Apellido)
         {
-            _id = id;
             _DNI = DNI;
             _direccion = Direccion;
             _usuario = Usuario;
@@ -55,5 +56,7 @@ namespace ClaseEntidades
         {
             return string.Format($"Cliente {this._id}, Usuario: {this._usuario}, Nombre: {this._nombre}, Apellido: {this._apellido}, Dni: {this._DNI}, Direccion: {this._direccion}, Fecha Nacimiento: {this._fechaNac}" );
         }
+
+        
     }
 }

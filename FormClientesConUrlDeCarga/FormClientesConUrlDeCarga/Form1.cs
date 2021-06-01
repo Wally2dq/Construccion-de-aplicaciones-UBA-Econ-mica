@@ -12,8 +12,10 @@ namespace FormClientesConUrlDeCarga
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        public Form _formulario;
+        public Form1(Form formulario)
         {
+            _formulario = (Form)formulario;
             InitializeComponent();
         }
 
@@ -33,6 +35,7 @@ namespace FormClientesConUrlDeCarga
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            _formulario.Show();
             this.Close();
         }
     }

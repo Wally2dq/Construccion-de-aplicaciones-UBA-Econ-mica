@@ -14,10 +14,18 @@ namespace CapaNegocio
 
         private List<Cliente> _listaClientes;
 
+        private List<Cuenta> _listaCuenta;
+
+        private CuentaMappers _cuentaMappers;
+
         public Negocio()
         {
             _clinteMapper = new ClienteMapper();
             _listaClientes = new List<Cliente>();
+
+            _cuentaMappers = new CuentaMappers();
+            _listaCuenta = new List<Cuenta>();
+            
         }
 
         public List<Cliente> Traer()
@@ -32,11 +40,16 @@ namespace CapaNegocio
             return _listaClientes;
         }
 
-        public TransactionResult Agregar(int id ,string usuario,string nombre, string apellido, string direccion, string dni,string FechaNac)
+        public TransactionResult Agregar(string usuario,string nombre, string apellido, string direccion, string dni,string FechaNac)
         {
-            Cliente cliente = new Cliente(id,nombre, apellido,dni, direccion, FechaNac, usuario);
+            Cliente cliente = new Cliente(nombre, apellido,dni, direccion, FechaNac, usuario);
 
             return _clinteMapper.Insertar(cliente);
+        }
+
+        public Cuenta TraerPorId(int IdCliente) 
+        {
+            return _cuentaMappers.Traer(IdCliente);
         }
     }
 }

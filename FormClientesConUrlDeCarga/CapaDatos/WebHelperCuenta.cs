@@ -6,22 +6,20 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
-
 
 namespace CapaDatos
 {
-    public static class WebHelper
+    public static class WebHelperCuenta
     {
         static WebClient client;
         static string rutaBase;
 
-        static WebHelper()
+        static WebHelperCuenta()
         {
             client = new WebClient();
             client.Encoding = Encoding.UTF8;
-            //rutaBase = "https://cai-api.azurewebsites.net/api/v1/";
-            rutaBase = ConfigurationManager.AppSettings["URL_API"];
+            //rutaBase = "http://cai-api.azurewebsites.net/api/v1/cuenta";
+            rutaBase = ConfigurationManager.AppSettings["URL_APIC"];
 
             client.Headers.Add("ContentType", "application/json");
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
@@ -42,7 +40,7 @@ namespace CapaDatos
 
             try
             {
-                var response = client.UploadValues(uri, parametros); 
+                var response = client.UploadValues(uri, parametros);
 
                 var responseString = Encoding.Default.GetString(response);
 
@@ -60,7 +58,7 @@ namespace CapaDatos
 
             try
             {
-                var response = client.UploadValues(uri, "PUT", parametros); 
+                var response = client.UploadValues(uri, "PUT", parametros);
 
                 var responseString = Encoding.Default.GetString(response);
 

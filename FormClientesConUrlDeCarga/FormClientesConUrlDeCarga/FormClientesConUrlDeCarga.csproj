@@ -58,6 +58,12 @@
     <Compile Include="FormAltaCliente.Designer.cs">
       <DependentUpon>FormAltaCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormModulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModulos.Designer.cs">
+      <DependentUpon>FormModulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMostrarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <EmbeddedResource Include="FormAltaCliente.resx">
       <DependentUpon>FormAltaCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormModulos.resx">
+      <DependentUpon>FormModulos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMostrarClientes.resx">
       <DependentUpon>FormMostrarClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +93,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="App1.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

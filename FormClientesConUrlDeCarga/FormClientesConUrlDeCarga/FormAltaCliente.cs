@@ -37,15 +37,14 @@ namespace FormClientesConUrlDeCarga
         {
             try 
             {
-                int Id = validar.ValidarNumero(txtId.Text);
                 string Nombre = validar.ValidarString(txtNombre.Text);
                 string Apellido = validar.ValidarString(txtApeliido.Text);
                 string Direccion = validar.ValidarString(txtDireccion.Text);
                 int Dni = validar.ValidarNumero(txtDNI.Text);
                 string Usuario = validar.ValidarString(txtUsuario.Text);
-                string FechaNac = validar.ValidarString(txtFechaNac.Text);
+                string FechaNac = validar.ValidarString(dateTimeFecha.Text);
 
-                TransactionResult resultado = _negocio.Agregar(Id,Usuario, Nombre, Apellido, Direccion, Dni.ToString(),FechaNac);
+                TransactionResult resultado = _negocio.Agregar(Usuario, Nombre, Apellido, Direccion, Dni.ToString(),FechaNac);
 
                 MessageBox.Show(resultado.Id.ToString());
 
@@ -63,13 +62,12 @@ namespace FormClientesConUrlDeCarga
         }
         public void Limpiar() 
         {
-            txtId.Clear();
             txtUsuario.Clear();
             txtNombre.Clear();
             txtApeliido.Clear();
             txtDireccion.Clear();
             txtDNI.Clear();
-            txtFechaNac.Clear();
+            dateTimeFecha.ResetText();
         }
     }
 }
