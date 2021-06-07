@@ -55,7 +55,6 @@
     <Compile Include="CuentaMappers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebHelper.cs" />
-    <Compile Include="WebHelperCuenta.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClaseEntidades\ClaseEntidades.csproj">

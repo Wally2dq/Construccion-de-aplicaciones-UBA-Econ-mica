@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6F08134F-7637-4B02-9FFE-378EB1AFACE7}</ProjectGuid>
+    <ProjectGuid>{B0DF65BD-1299-4A2B-A973-BD1ED1C8E825}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>FormClientesConUrlDeCarga</RootNamespace>
-    <AssemblyName>FormClientesConUrlDeCarga</AssemblyName>
+    <RootNamespace>PracticaParcial2</RootNamespace>
+    <AssemblyName>PracticaParcial2</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,38 +52,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAltaCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAltaCliente.Designer.cs">
-      <DependentUpon>FormAltaCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormModulos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormModulos.Designer.cs">
-      <DependentUpon>FormModulos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormMostrarClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMostrarClientes.Designer.cs">
-      <DependentUpon>FormMostrarClientes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAltaCliente.resx">
-      <DependentUpon>FormAltaCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormModulos.resx">
-      <DependentUpon>FormModulos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMostrarClientes.resx">
-      <DependentUpon>FormMostrarClientes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -105,16 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
-      <Project>{25918a8f-2535-4743-9362-07a6f73b02de}</Project>
-      <Name>CapaNegocio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ClaseEntidades\ClaseEntidades.csproj">
-      <Project>{0a3d4611-6e53-47b5-a0e7-e4624864a16d}</Project>
-      <Name>ClaseEntidades</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
