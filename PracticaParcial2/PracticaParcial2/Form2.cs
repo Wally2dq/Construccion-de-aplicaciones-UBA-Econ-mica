@@ -59,13 +59,19 @@ namespace PracticaParcial2
 
             try
             {
+                Limpiar();
+
                 PrestamoTipo tipo = (PrestamoTipo) listBoxTipoPrestamo.SelectedValue;
 
-                textBoxLinea.Text = tipo.Linea.ToString();
-                textBoxTNA.Text = tipo.TNA.ToString();
+                if (tipo != null)
+                {
+                    textBoxLinea.Text = tipo.Linea.ToString();
+                    textBoxTNA.Text = tipo.TNA.ToString();
 
+                    CargarLstiPrestamo(tipo.id);
+                }
 
-                CargarLstiPrestamo(tipo.id);
+                
                 
             }
             catch (Exception ex)
@@ -122,7 +128,7 @@ namespace PracticaParcial2
                 PrestamoTipo tipo = (PrestamoTipo)listBoxTipoPrestamo.SelectedValue;
 
                 Prestamo prestamo = new Prestamo();
-                prestamo.id = tipo.id;
+                prestamo.Tipo = tipo.id;
                 prestamo.Linea = tipo.Linea;
                 prestamo.TNA = tipo.TNA;
                 prestamo.Monto = _validar.ValidarNumeroDouble(textBoxMonto.Text) ;
@@ -142,7 +148,7 @@ namespace PracticaParcial2
 
                 CargarLstTipoPrestamo();
 
-
+                Limpiar();
             }
             
             catch (Exception ex)
@@ -162,6 +168,17 @@ namespace PracticaParcial2
                 textBox1.Text = ope.MostrarComision().ToString("0.00");
             }
 
+        }
+
+        private void Limpiar() 
+        {
+            textBoxLinea.Clear();
+            textBoxMonto.Clear();
+            textBoxTNA.Clear();
+            textBoxPlazo.Clear();
+            textBoxCuotaInteres.Clear();
+            textBoxCuotaCapital.Clear();
+            textBoxCuotaTotal.Clear();
         }
     }
 }

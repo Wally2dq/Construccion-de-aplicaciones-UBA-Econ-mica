@@ -243,14 +243,14 @@ namespace PracticaParcial2
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(630, 368);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 13);
+            this.label10.Size = new System.Drawing.Size(49, 13);
             this.label10.TabIndex = 21;
-            this.label10.Text = "Cuota Total";
+            this.label10.Text = "Comision";
             // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(755, 365);
+            this.textBox1.Location = new System.Drawing.Point(695, 365);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 22;

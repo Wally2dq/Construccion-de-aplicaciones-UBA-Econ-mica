@@ -10,10 +10,10 @@ namespace CapaEntidades
     [DataContract]
     public class PrestamoTipo
     {
-        protected string _linea;
-        protected double _TNA;
+        private string _linea;
+        private double _TNA;
 
-        protected int _id;
+        private int _id;
 
         [DataMember]
         public string Linea { get => _linea; set => _linea = value; }

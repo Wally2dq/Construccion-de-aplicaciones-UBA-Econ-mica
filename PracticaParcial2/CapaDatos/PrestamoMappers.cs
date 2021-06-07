@@ -52,17 +52,16 @@ namespace CapaDatos
 
         private NameValueCollection ReverserMappers(Prestamo prestamo) 
         {
-            /*
-             *  private int _plazo;
-        private double _monto;
-        private string _usuario;
-             */
+            
             NameValueCollection n = new NameValueCollection();
             n.Add("Plazo", prestamo.Plazo.ToString());
             n.Add("Monto", prestamo.Monto.ToString("0.00"));
             n.Add("Linea", prestamo.Linea);
+            n.Add("TNA", prestamo.TNA.ToString());
             n.Add("Cuota", prestamo.Cuota.ToString("0.00"));
-            n.Add("idCliente", prestamo.id.ToString());
+            n.Add("idTipo", prestamo.Tipo.ToString());
+            n.Add("Usuario", "889040");
+            n.Add("idCliente", "437");
 
 
         //INPUT: Linea, Plazo, Monto, CuotaTotal

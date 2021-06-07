@@ -8,14 +8,28 @@ using System.Threading.Tasks;
 namespace CapaEntidades
 {
     [DataContract]
-    public sealed class Prestamo : PrestamoTipo
+    public class Prestamo
     {
+        private int _id;
+        private string _linea;
+        private double _TNA;
 
         private int _plazo;
         private double _monto;
         private string _usuario;
         private double _cuota;
+        private int _tipo;
 
+        
+
+        
+
+        [DataMember]
+        public string Linea { get => _linea; set => _linea = value; }
+        [DataMember]
+        public double TNA { get => _TNA; set => _TNA = value; }
+        [DataMember]
+        public int id { get => _id; set => _id = value; }
 
         [DataMember]
         public int Plazo { get => _plazo; set => _plazo = value; }
@@ -25,6 +39,8 @@ namespace CapaEntidades
         public string Usuario { get => _usuario; set => _usuario = value; }
         [DataMember]
         public double Cuota { get => _cuota; set => _cuota = value; }
+        [DataMember]
+        public int Tipo { get => _tipo; set => _tipo = value; }
 
         public Prestamo() 
         {
@@ -43,6 +59,11 @@ namespace CapaEntidades
             return CuotaCapital + CuotaInteres;
         }
 
-        
+        public override string ToString()
+        {
+            return $"id : {id}, Usuario : {Usuario}, Monto : {Monto}, Plazo : {Plazo}";
+        }
+
+
     }
 }
