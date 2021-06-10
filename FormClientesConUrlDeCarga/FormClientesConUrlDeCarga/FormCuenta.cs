@@ -113,7 +113,15 @@ namespace FormClientesConUrlDeCarga
 
                 TransactionResult lst = _negocio.Alta(cliente.Cuenta);
 
-                MessageBox.Show("Cuenta creada");
+                if (lst.IsOk)
+                {
+                    MessageBox.Show("Cuenta dado de alta");
+                }
+                else
+                {
+                    MessageBox.Show("Error al dar de alta");
+                }
+
                 Limpiar();
                 txtDescripcion.Enabled = false;
                 btnAlta.Enabled = false;
@@ -141,7 +149,14 @@ namespace FormClientesConUrlDeCarga
 
                 TransactionResult lst = _negocio.Actualizar(cliente.Cuenta);
 
-                MessageBox.Show("Actualizado ");
+                if (lst.IsOk) 
+                {
+                    MessageBox.Show("Actualizado");
+                }
+                else
+                {
+                    MessageBox.Show("Error al actualizar");
+                }
 
                 txtSaldo.Enabled = false;
                 btnModi.Enabled = false;

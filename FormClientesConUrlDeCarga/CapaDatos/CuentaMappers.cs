@@ -76,8 +76,10 @@ namespace CapaDatos
             n.Add("id", cuenta.id.ToString());
             n.Add("Saldo", cuenta.saldo.ToString("0.00"));
             n.Add("FechaModificacion", DateTime.Now.ToString());
-
+             
             return n;
         }
+
+        
     }
 }
