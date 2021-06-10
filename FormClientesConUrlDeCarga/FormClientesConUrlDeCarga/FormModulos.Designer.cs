@@ -52,6 +52,7 @@ namespace FormClientesConUrlDeCarga
             this.btnCuentas.TabIndex = 1;
             this.btnCuentas.Text = "Cuentas";
             this.btnCuentas.UseVisualStyleBackColor = true;
+            this.btnCuentas.Click += new System.EventHandler(this.btnCuentas_Click);
             // 
             // btnSalir
             // 

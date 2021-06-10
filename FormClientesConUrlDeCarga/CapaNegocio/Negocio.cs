@@ -36,6 +36,12 @@ namespace CapaNegocio
             // REGLAS DE NEGOCIO > sean mayores, activos, pares, etc
 
             // va con try catch  y validaciones
+            _listaCuenta = _cuentaMappers.TraerTodasCuentas();
+
+            if (_listaClientes.Count() > 0) 
+            {
+                CargarCuentaEnLista(_listaClientes, _listaCuenta);
+            }
 
             return _listaClientes;
         }
@@ -47,9 +53,30 @@ namespace CapaNegocio
             return _clinteMapper.Insertar(cliente);
         }
 
-        public Cuenta TraerPorId(int IdCliente) 
+        private void CargarCuentaEnLista(List<Cliente> _listaCliente, List<Cuenta>_listaCuenta) 
         {
-            return _cuentaMappers.Traer(IdCliente);
+            foreach (Cliente cliente in _listaCliente) 
+            {
+                foreach (Cuenta cuenta in _listaCuenta) 
+                {
+                    if (cliente.id == cuenta.idCliente) 
+                    {
+                        cliente.Cuenta = cuenta;
+                    }
+                }
+            }
+        }
+
+        public TransactionResult Alta(Cuenta cuenta) 
+        {
+            TransactionResult lst = _cuentaMappers.Alta(cuenta);
+            return lst;
+        }
+
+        public TransactionResult Actualizar(Cuenta cuenta)
+        {
+            TransactionResult lst = _cuentaMappers.Actualizar(cuenta);
+            return lst;
         }
     }
 }

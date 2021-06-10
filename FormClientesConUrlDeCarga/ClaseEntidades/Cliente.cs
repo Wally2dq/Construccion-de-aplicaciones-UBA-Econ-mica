@@ -38,6 +38,11 @@ namespace ClaseEntidades
         [DataMember(Name = "usuario")]
         public string usuario { get => _usuario; set => _usuario = value; }
 
+        public Cuenta Cuenta
+        {
+            get => _cuenta; set => _cuenta = value;
+        }
+
         public Cliente(string Nombre,string Apellido, string DNI,string Direccion, string FechaNac,string Usuario) : base(Nombre,Apellido)
         {
             _DNI = DNI;

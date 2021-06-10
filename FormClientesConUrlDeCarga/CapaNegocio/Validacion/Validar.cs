@@ -22,6 +22,19 @@ namespace CapaNegocio.Validacion
 
             return salida;
         }
+        public double ValidarNumeroDouble(string entrada)
+        {
+            double salida;
+
+            if (!double.TryParse(entrada, out salida))//Cuando no se puede transformar el numero, salta este cartel
+            {
+
+                throw new ValidarNumeroException("Ingrese Numeros");
+
+            }
+
+            return salida;
+        }
 
         public string ValidarString(string entrada)
         {

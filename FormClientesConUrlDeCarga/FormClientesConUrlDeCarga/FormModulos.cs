@@ -28,5 +28,12 @@ namespace FormClientesConUrlDeCarga
         {
             this.Close();
         }
+
+        private void btnCuentas_Click(object sender, EventArgs e)
+        {
+            FormCuenta cuenta = new FormCuenta(this);
+            cuenta.Show();
+            this.Hide();
+        }
     }
 }
