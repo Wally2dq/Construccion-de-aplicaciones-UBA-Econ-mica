@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CapaDeNegocio\CapaDeNegocio.csproj" />
+    <ProjectReference Include="..\Entidades\CapaDeEntidades.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Productos\ProductoOpciones\FormBuscarProductoporProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Ventas\VentasOpciones\FormBuscarPorCodigoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>
